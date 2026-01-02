@@ -1,0 +1,138 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ProductCard from "../components/ProductCard.astro";
+import { products } from "../data/products";
+
+// Get unique categories
+const categories = ["All", ...Array.from(new Set(products.map(p => p.category)))];
+---
+
+<BaseLayout
+  title="Shop - CraftNW"
+  description="Browse our collection of handcrafted woodworking, productivity tools, and printables."
+>
+  <Header />
+  
+  <!-- Add padding for fixed header -->
+  <div class="pt-32 md:pt-36"></div>
+
+  <!-- Page Header -->
+  <section class="bg-craft-tan py-16">
+    <div class="container-craft text-center">
+      <h1 class="text-craft-black mb-4">
+        Shop
+      </h1>
+      <p class="text-craft-charcoal text-xl max-w-2xl mx-auto">
+        Each piece is handcrafted with care in Newberg, Oregon. Browse our collection of woodworking, productivity tools, and printables.
+      </p>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section-padding bg-craft-cream">
+    <div class="container-craft">
+      <!-- Category Filter (for future implementation) -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        {categories.map((category) => (
+          <button
+            class="px-6 py-2 rounded-full border-2 border-craft-brown text-craft-black hover:bg-craft-black hover:text-craft-white hover:border-craft-black transition-all"
+            data-category={category}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <!-- Products Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid">
+        {products.map((product) => (
+          <ProductCard
+            name={product.name}
+            price={product.price}
+            image={product.image}
+            category={product.category}
+            link={product.etsyLink}
+            featured={product.featured}
+          />
+        ))}
+      </div>
+
+      <!-- Empty State (hidden by default) -->
+      <div id="empty-state" class="hidden text-center py-16">
+        <p class="text-craft-charcoal text-xl">
+          No products found in this category.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding bg-craft-white">
+    <div class="container-craft text-center">
+      <h2 class="text-craft-black mb-6">
+        Custom Orders Welcome
+      </h2>
+      <p class="text-craft-charcoal text-lg mb-8 max-w-2xl mx-auto">
+        Have a specific project in mind? I'd love to work with you on a custom piece. Get in touch to discuss your ideas.
+      </p>
+      <a href="/contact" class="btn-primary inline-flex items-center gap-2">
+        <span>Contact Me</span>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  // Simple category filtering
+  const buttons = document.querySelectorAll('[data-category]');
+  const productsGrid = document.getElementById('products-grid');
+  const emptyState = document.getElementById('empty-state');
+  
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.getAttribute('data-category');
+      
+      // Update active button
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-craft-black', 'text-craft-white');
+        btn.classList.add('text-craft-black');
+      });
+      button.classList.add('bg-craft-black', 'text-craft-white');
+      button.classList.remove('text-craft-black');
+      
+      // Filter products
+      const products = productsGrid?.querySelectorAll('article');
+      let visibleCount = 0;
+      
+      products?.forEach(product => {
+        const productCategory = product.querySelector('[class*="uppercase"]')?.textContent?.trim();
+        
+        if (category === 'All' || productCategory === category) {
+          product.style.display = 'block';
+          visibleCount++;
+        } else {
+          product.style.display = 'none';
+        }
+      });
+      
+      // Show/hide empty state
+      if (visibleCount === 0) {
+        productsGrid?.classList.add('hidden');
+        emptyState?.classList.remove('hidden');
+      } else {
+        productsGrid?.classList.remove('hidden');
+        emptyState?.classList.add('hidden');
+      }
+    });
+  });
+  
+  // Set "All" as active by default
+  const allButton = document.querySelector('[data-category="All"]');
+  allButton?.classList.add('bg-craft-black', 'text-craft-white');
+</script>
+

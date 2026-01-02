@@ -1,0 +1,165 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout
+  title="About - CraftNW"
+  description="Learn about CraftNW and the handcrafted goods made in Newberg, Oregon."
+>
+  <Header />
+  
+  <!-- Add padding for fixed header -->
+  <div class="pt-32 md:pt-36"></div>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-craft-tan">
+    <div class="container-craft text-center px-6 py-20">
+      <h1 class="text-craft-black mb-6">
+        About CraftNW
+      </h1>
+      <p class="text-craft-charcoal text-xl md:text-2xl max-w-3xl mx-auto">
+        Where craftsmanship meets creativity in the heart of the Pacific Northwest
+      </p>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="section-padding bg-craft-white">
+    <div class="container-craft">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Image -->
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1416339442236-8ceb164046f8?w=800&q=80"
+            alt="Workshop tools"
+            class="rounded-lg shadow-lg w-full"
+          />
+        </div>
+
+        <!-- Content -->
+        <div>
+          <h2 class="text-craft-black mb-6">
+            The Story
+          </h2>
+          <p class="text-craft-charcoal text-lg mb-6">
+            CraftNW began in a small workshop in Newberg, Oregon, where a passion for creating beautiful, functional objects came to life. What started as weekend projects and personal experiments has grown into a collection of handcrafted goods that blend traditional craftsmanship with modern design.
+          </p>
+          <p class="text-craft-charcoal text-lg mb-6">
+            Every piece tells a story. From carefully selected materials to the final finishing touches, each item is made with intention and care. Whether it's a woodworking project, a set of productivity cards, or a printable design, the goal is always the same: to create something that brings both beauty and utility to your everyday life.
+          </p>
+          <p class="text-craft-charcoal text-lg">
+            Based in the Pacific Northwest, CraftNW draws inspiration from the natural beauty and creative spirit of Oregon. Each piece is a reflection of that environment—thoughtful, enduring, and made to last.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section-padding bg-craft-cream">
+    <div class="container-craft">
+      <div class="text-center mb-16">
+        <h2 class="text-craft-black mb-4">
+          The Process
+        </h2>
+        <p class="text-craft-charcoal text-lg max-w-2xl mx-auto">
+          Every piece goes through a careful process from concept to completion
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="text-center">
+          <div class="w-16 h-16 bg-craft-red rounded-full flex items-center justify-center text-craft-white text-2xl font-bold mx-auto mb-6">
+            1
+          </div>
+          <h3 class="text-craft-black mb-4">Design</h3>
+          <p class="text-craft-charcoal">
+            Each project begins with thoughtful design, considering both form and function to create something truly useful.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="text-center">
+          <div class="w-16 h-16 bg-craft-red rounded-full flex items-center justify-center text-craft-white text-2xl font-bold mx-auto mb-6">
+            2
+          </div>
+          <h3 class="text-craft-black mb-4">Craft</h3>
+          <p class="text-craft-charcoal">
+            Using quality materials and traditional techniques, each piece is carefully crafted by hand in the workshop.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center">
+          <div class="w-16 h-16 bg-craft-red rounded-full flex items-center justify-center text-craft-white text-2xl font-bold mx-auto mb-6">
+            3
+          </div>
+          <h3 class="text-craft-black mb-4">Finish</h3>
+          <p class="text-craft-charcoal">
+            Final touches ensure every detail is perfect, creating a finished product that's built to last.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="section-padding bg-craft-white">
+    <div class="container-craft max-w-4xl">
+      <div class="text-center mb-16">
+        <h2 class="text-craft-black mb-4">
+          What Drives Us
+        </h2>
+      </div>
+
+      <div class="space-y-12">
+        <div>
+          <h3 class="text-craft-black mb-4">Quality Over Quantity</h3>
+          <p class="text-craft-charcoal text-lg">
+            Every piece is made with care and attention to detail. We'd rather make fewer things well than rush through production.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-craft-black mb-4">Sustainable Materials</h3>
+          <p class="text-craft-charcoal text-lg">
+            We source materials responsibly and use sustainable practices whenever possible, ensuring our work respects both craft and environment.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-craft-black mb-4">Timeless Design</h3>
+          <p class="text-craft-charcoal text-lg">
+            Our designs avoid trends in favor of timeless aesthetics that will look just as good years from now as they do today.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding bg-craft-tan">
+    <div class="container-craft text-center">
+      <h2 class="text-craft-black mb-6">
+        Let's Work Together
+      </h2>
+      <p class="text-craft-charcoal text-lg mb-8 max-w-2xl mx-auto">
+        Interested in a custom piece or have questions about our work? We'd love to hear from you.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/shop" class="btn-primary inline-flex items-center gap-2">
+          <span>Browse Shop</span>
+        </a>
+        <a href="/contact" class="btn-secondary inline-flex items-center gap-2">
+          <span>Get in Touch</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
