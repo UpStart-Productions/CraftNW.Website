@@ -1,0 +1,275 @@
+---
+export interface CarouselSlide {
+  image: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  textColor?: "white" | "charcoal"; // Text color for this slide
+}
+
+interface Props {
+  slides: CarouselSlide[];
+  height?: "small" | "medium" | "large" | "full" | string; // Can be preset or custom (e.g., "80vh", "600px")
+  zoomDuration?: number; // Duration of zoom animation in seconds
+  displayDuration?: number; // How long each image displays before fading
+  fadeTransition?: number; // Duration of fade transition in seconds
+}
+
+const {
+  slides,
+  height = "full",
+  zoomDuration = 8,
+  displayDuration = 6,
+  fadeTransition = 2,
+} = Astro.props;
+
+const heightClasses = {
+  small: "min-h-[50vh]",
+  medium: "min-h-[60vh]",
+  large: "min-h-[70vh]",
+  full: "min-h-screen",
+};
+
+// Determine if height is a preset or custom value
+const isPresetHeight = height in heightClasses;
+const heightClass = isPresetHeight ? heightClasses[height as keyof typeof heightClasses] : "";
+const customHeightStyle = !isPresetHeight ? `min-height: ${height};` : "";
+
+// Generate a unique ID for this carousel instance
+const carouselId = `carousel-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<section
+  id={carouselId}
+  class={`relative ${heightClass} overflow-hidden mt-32 md:mt-36`}
+  style={customHeightStyle}
+  data-zoom-duration={zoomDuration}
+  data-display-duration={displayDuration}
+  data-fade-transition={fadeTransition}
+>
+  <!-- Background Images -->
+  {slides.map((slide, index) => (
+    <div
+      class="carousel-slide absolute inset-0 opacity-0"
+      data-index={index}
+    >
+      <div
+        class="carousel-slide-bg absolute inset-0"
+        style={`background-image: url('${slide.image}'); background-size: cover; background-position: center;`}
+      >
+        <!-- Optional overlay for better text readability -->
+        <div class="absolute inset-0 bg-craft-black/20"></div>
+      </div>
+    </div>
+  ))}
+
+  <!-- Text Content Overlays - Static (don't zoom) -->
+  {slides.map((slide, index) => {
+    const textColor = slide.textColor || "white";
+    const textColorClass = textColor === "white" ? "text-craft-white" : "text-craft-charcoal";
+    const hasText = slide.title || slide.subtitle || slide.description;
+    
+    return hasText && (
+      <div
+        class={`carousel-text absolute top-8 right-8 md:top-16 md:right-16 z-10 max-w-md text-right opacity-0 ${textColorClass}`}
+        data-text-index={index}
+      >
+        {slide.title && (
+          <h1 class={`${textColorClass} drop-shadow-2xl mb-4`}>
+            {slide.title}
+          </h1>
+        )}
+        {slide.subtitle && (
+          <h3 class={`${textColorClass} text-2xl md:text-3xl font-medium mb-4 drop-shadow-lg`}>
+            {slide.subtitle}
+          </h3>
+        )}
+        {slide.description && (
+          <p class={`${textColorClass} text-lg md:text-xl drop-shadow-lg leading-relaxed`}>
+            {slide.description}
+          </p>
+        )}
+      </div>
+    );
+  })}
+</section>
+
+<style>
+  .carousel-slide {
+    transition: opacity var(--fade-duration) ease-in-out;
+    will-change: opacity;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .carousel-slide.fading-out {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  /* Background zooms, but not the text */
+  .carousel-slide-bg {
+    animation: kenBurnsZoom var(--zoom-duration) ease-out forwards;
+    will-change: transform;
+  }
+
+  /* Text transitions - static, no zoom */
+  .carousel-text {
+    transition: opacity var(--fade-duration) ease-in-out;
+    will-change: opacity;
+  }
+
+  .carousel-text.active {
+    opacity: 1;
+    z-index: 10;
+  }
+
+  .carousel-text.fading-out {
+    opacity: 0;
+  }
+
+  @keyframes kenBurnsZoom {
+    from {
+      transform: scale(1.15);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+</style>
+
+<script>
+  class ImageCarousel {
+    private container: HTMLElement;
+    private slides: NodeListOf<HTMLElement>;
+    private textElements: NodeListOf<HTMLElement>;
+    private currentIndex: number = 0;
+    private zoomDuration: number;
+    private displayDuration: number;
+    private fadeTransition: number;
+    private intervalId: number | null = null;
+
+    constructor(container: HTMLElement) {
+      this.container = container;
+      this.slides = container.querySelectorAll('.carousel-slide');
+      this.textElements = container.querySelectorAll('.carousel-text');
+      
+      // Get timing parameters from data attributes
+      this.zoomDuration = parseFloat(container.dataset.zoomDuration || '8') * 1000;
+      this.displayDuration = parseFloat(container.dataset.displayDuration || '6') * 1000;
+      this.fadeTransition = parseFloat(container.dataset.fadeTransition || '2') * 1000;
+
+      // Set CSS variables for animations
+      this.slides.forEach(slide => {
+        const bg = slide.querySelector('.carousel-slide-bg') as HTMLElement;
+        if (bg) {
+          bg.style.setProperty('--zoom-duration', `${this.zoomDuration}ms`);
+        }
+        slide.style.setProperty('--fade-duration', `${this.fadeTransition}ms`);
+      });
+
+      // Set fade duration for text elements
+      this.textElements.forEach(text => {
+        text.style.setProperty('--fade-duration', `${this.fadeTransition}ms`);
+      });
+
+      this.init();
+    }
+
+    private init(): void {
+      if (this.slides.length === 0) return;
+
+      // Show first slide and text
+      this.slides[0].classList.add('active');
+      if (this.textElements.length > 0) {
+        this.textElements[0].classList.add('active');
+      }
+      
+      // Start the carousel if there's more than one image
+      if (this.slides.length > 1) {
+        this.start();
+      }
+    }
+
+    private start(): void {
+      // Calculate total cycle time: display duration includes the fade transition
+      const cycleTime = this.displayDuration;
+      
+      this.intervalId = window.setInterval(() => {
+        this.next();
+      }, cycleTime);
+    }
+
+    private next(): void {
+      const currentSlide = this.slides[this.currentIndex];
+      const nextIndex = (this.currentIndex + 1) % this.slides.length;
+      const nextSlide = this.slides[nextIndex];
+
+      // Handle text transitions
+      const currentText = this.textElements[this.currentIndex];
+      const nextText = this.textElements[nextIndex];
+
+      // Start fade out on current slide and text
+      currentSlide.classList.add('fading-out');
+      if (currentText) {
+        currentText.classList.add('fading-out');
+      }
+      
+      // Reset and start the next slide
+      const nextBg = nextSlide.querySelector('.carousel-slide-bg') as HTMLElement;
+      if (nextBg) {
+        // Remove animation to reset it
+        nextBg.style.animation = 'none';
+        
+        // Force reflow to restart animation
+        void nextBg.offsetWidth;
+        
+        // Restore animation
+        nextBg.style.animation = '';
+      }
+      
+      // Make next slide and text visible
+      nextSlide.classList.add('active');
+      nextSlide.classList.remove('fading-out');
+      if (nextText) {
+        nextText.classList.add('active');
+        nextText.classList.remove('fading-out');
+      }
+
+      // After fade transition completes, clean up the old slide and text
+      setTimeout(() => {
+        currentSlide.classList.remove('active', 'fading-out');
+        if (currentText) {
+          currentText.classList.remove('active', 'fading-out');
+        }
+      }, this.fadeTransition);
+
+      this.currentIndex = nextIndex;
+    }
+
+    public destroy(): void {
+      if (this.intervalId !== null) {
+        clearInterval(this.intervalId);
+      }
+    }
+  }
+
+  // Initialize all carousels on the page
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('[id^="carousel-"]');
+    const instances: ImageCarousel[] = [];
+
+    carousels.forEach(carousel => {
+      instances.push(new ImageCarousel(carousel as HTMLElement));
+    });
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+      instances.forEach(instance => instance.destroy());
+    });
+  });
+</script>
+
