@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ProductCard from "../components/ProductCard.astro";
+import { getFeaturedProducts } from "../data/products";
+import { ArrowRight } from "lucide-astro";
+
+const featuredProducts = getFeaturedProducts();
+---
+
+<BaseLayout>
+  <Header />
+  
+  <!-- Add padding for fixed header -->
+  <div class="pt-24 md:pt-28"></div>
+
+  <!-- Hero Section -->
+  <Hero
+    title="Handcrafted for Your Home"
+    subtitle="Quality woodworking, productivity tools, and printables made with care in Newberg, Oregon"
+    ctaText="Shop Products"
+    ctaLink="/shop"
+    backgroundImage="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=1600&q=80"
+    height="large"
+  />
+
+  <!-- Featured Products Section -->
+  <section class="section-padding bg-craft-cream">
+    <div class="container-craft">
+      <SectionHeader
+        title="Featured Products"
+        subtitle="Handpicked items crafted with attention to detail"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {featuredProducts.map((product) => (
+          <ProductCard
+            name={product.name}
+            price={product.price}
+            image={product.image}
+            category={product.category}
+            link={product.etsyLink}
+            featured={product.featured}
+          />
+        ))}
+      </div>
+
+      <div class="text-center">
+        <a href="/shop" class="btn-primary inline-flex items-center gap-2">
+          <span>View All Products</span>
+          <ArrowRight class="w-5 h-5" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview Section -->
+  <section class="section-padding bg-craft-white">
+    <div class="container-craft">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Image -->
+        <div class="order-2 lg:order-1">
+          <img
+            src="https://images.unsplash.com/photo-1614963366795-38f304f2f0d6?w=800&q=80"
+            alt="Woodworking workshop"
+            class="rounded-lg shadow-lg w-full"
+          />
+        </div>
+
+        <!-- Content -->
+        <div class="order-1 lg:order-2">
+          <h2 class="text-craft-black mb-6">
+            Crafted with Care in the Pacific Northwest
+          </h2>
+          <p class="text-craft-charcoal text-lg mb-6">
+            Every piece is handmade in my workshop in Newberg, Oregon. From woodworking projects to productivity tools, I create items that blend function with thoughtful design.
+          </p>
+          <p class="text-craft-charcoal text-lg mb-8">
+            What started as a hobby has grown into a passion for creating beautiful, useful things that bring joy to everyday life.
+          </p>
+          <a href="/about" class="btn-secondary inline-flex items-center gap-2">
+            <span>Learn More About CraftNW</span>
+            <ArrowRight class="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="section-padding bg-craft-tan">
+    <div class="container-craft">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-craft-black mb-4">
+          Stay Updated
+        </h2>
+        <p class="text-craft-charcoal text-lg mb-8">
+          Get notified when new products are available and receive occasional updates from the workshop.
+        </p>
+        
+        <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <input
+            type="email"
+            placeholder="Your email address"
+            class="flex-1 px-6 py-4 rounded-lg border-2 border-craft-brown focus:border-craft-black focus:outline-none text-craft-black"
+            required
+          />
+          <button type="submit" class="btn-primary whitespace-nowrap">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+

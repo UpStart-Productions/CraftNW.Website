@@ -1,0 +1,31 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer Circle -->
+  <circle cx="100" cy="100" r="95" stroke="#3D3D3D" stroke-width="4" fill="none"/>
+  
+  <!-- Red Arrow Accent -->
+  <path d="M 60 60 L 85 60 L 75 75 Z" fill="#D84315"/>
+  
+  <!-- Left Dot -->
+  <circle cx="55" cy="130" r="5" fill="#3D3D3D"/>
+  
+  <!-- Right Dot -->
+  <circle cx="145" cy="130" r="5" fill="#3D3D3D"/>
+  
+  <!-- Text: CRAFT -->
+  <text x="100" y="75" font-family="Arial, sans-serif" font-size="16" font-weight="400" letter-spacing="4" text-anchor="middle" fill="#3D3D3D">CRAFT</text>
+  
+  <!-- Text: NW (Large) -->
+  <text x="100" y="140" font-family="Arial, sans-serif" font-size="60" font-weight="700" text-anchor="middle" fill="#3D3D3D">NW</text>
+  
+  <!-- Text: NEWBERG·OR (Small, curved top) -->
+  <text x="100" y="165" font-family="Arial, sans-serif" font-size="9" font-weight="400" letter-spacing="2" text-anchor="middle" fill="#3D3D3D">NEWBERG·OR</text>
+  
+  <!-- Text: JEFF DENTON (Curved bottom) -->
+  <path id="bottomCurve" d="M 40 175 Q 100 185 160 175" fill="none"/>
+  <text font-family="Arial, sans-serif" font-size="11" font-weight="400" letter-spacing="2" fill="#3D3D3D">
+    <textPath href="#bottomCurve" startOffset="50%" text-anchor="middle">
+      JEFF DENTON
+    </textPath>
+  </text>
+</svg>
+

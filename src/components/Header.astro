@@ -1,0 +1,173 @@
+---
+import { ShoppingBag } from "lucide-astro";
+
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { name: "Home", href: "/" },
+  { name: "Shop", href: "/shop" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-craft-white border-b border-craft-warm-gray">
+  <nav class="container-craft">
+    <div class="flex items-center justify-between py-4 md:py-6">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img
+          src="/images/branding/Craft NW Logo Standard.svg"
+          alt="CraftNW"
+          class="h-24 md:h-30 w-auto"
+        />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-12">
+        {
+          navItems.map((item) => {
+            const isActive = 
+              (item.href === "/" && currentPath === "/") ||
+              (item.href !== "/" && currentPath.startsWith(item.href));
+            
+            return (
+              <a
+                href={item.href}
+                class={`nav-link text-craft-black hover:text-craft-red transition-colors font-medium text-lg ${
+                  isActive ? "active" : ""
+                }`}
+              >
+                {item.name}
+              </a>
+            );
+          })
+        }
+      </div>
+
+      <!-- Shop CTA Button -->
+      <div class="hidden md:block">
+        <a
+          href="/shop"
+          class="btn-primary flex items-center gap-2"
+        >
+          <ShoppingBag class="w-5 h-5" />
+          <span>Shop</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 text-craft-black hover:text-craft-red transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg
+          id="hamburger-icon"
+          class="w-7 h-7 transition-all duration-300"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg
+          id="close-icon"
+          class="w-7 h-7 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-0"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-craft-white border-t border-craft-warm-gray"
+  >
+    <div class="container-craft py-6 space-y-4">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="block text-craft-black hover:text-craft-red transition-colors font-medium text-lg py-2"
+          >
+            {item.name}
+          </a>
+        ))
+      }
+      <a
+        href="/shop"
+        class="btn-primary w-full mt-4 flex items-center justify-center gap-2"
+      >
+        <ShoppingBag class="w-5 h-5" />
+        <span>Shop</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav-link {
+    position: relative;
+    padding-bottom: 4px;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--craft-red);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .nav-link.active {
+    color: var(--craft-red);
+  }
+</style>
+
+<script>
+  const menuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const hamburgerIcon = document.getElementById("hamburger-icon");
+  const closeIcon = document.getElementById("close-icon");
+
+  menuButton?.addEventListener("click", () => {
+    const isHidden = mobileMenu?.classList.contains("hidden");
+    
+    if (isHidden) {
+      mobileMenu?.classList.remove("hidden");
+      if (hamburgerIcon && closeIcon) {
+        hamburgerIcon.style.opacity = "0";
+        closeIcon.style.opacity = "1";
+      }
+    } else {
+      mobileMenu?.classList.add("hidden");
+      if (hamburgerIcon && closeIcon) {
+        hamburgerIcon.style.opacity = "1";
+        closeIcon.style.opacity = "0";
+      }
+    }
+  });
+</script>
+

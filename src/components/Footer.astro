@@ -1,0 +1,103 @@
+---
+import { Instagram, Mail } from "lucide-astro";
+import { ORG_CONTACT, getEnabledSocials } from "../config/site";
+
+const currentYear = new Date().getFullYear();
+const socials = getEnabledSocials();
+---
+
+<footer class="bg-craft-black text-craft-white">
+  <div class="container-craft py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+      <!-- Logo & Tagline -->
+      <div class="space-y-4">
+        <img
+          src="/images/branding/Craft NW Logo Standard.svg"
+          alt="CraftNW"
+          class="h-20 w-auto brightness-0 invert"
+        />
+        <p class="text-gray-300 text-base max-w-xs">
+          Handcrafted goods from Newberg, Oregon. Made with care, built to last.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-medium mb-4 text-craft-white">Quick Links</h3>
+        <ul class="space-y-3">
+          <li>
+            <a href="/" class="text-gray-300 hover:text-craft-red transition-colors">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/shop" class="text-gray-300 hover:text-craft-red transition-colors">
+              Shop
+            </a>
+          </li>
+          <li>
+            <a href="/about" class="text-gray-300 hover:text-craft-red transition-colors">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/contact" class="text-gray-300 hover:text-craft-red transition-colors">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Connect -->
+      <div>
+        <h3 class="text-lg font-medium mb-4 text-craft-white">Connect</h3>
+        <div class="space-y-3">
+          <a
+            href={`mailto:${ORG_CONTACT.email}`}
+            class="flex items-center gap-2 text-gray-300 hover:text-craft-red transition-colors"
+          >
+            <Mail class="w-5 h-5" />
+            <span>{ORG_CONTACT.email}</span>
+          </a>
+          
+          {socials.map((social) => {
+            if (social.key === "instagram") {
+              return (
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-2 text-gray-300 hover:text-craft-red transition-colors"
+                >
+                  <Instagram class="w-5 h-5" />
+                  <span>@craft_nw</span>
+                </a>
+              );
+            }
+            return null;
+          })}
+
+          <p class="text-gray-300 text-sm pt-2">
+            {ORG_CONTACT.location}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-gray-400 text-sm">
+        © {currentYear} CraftNW. All rights reserved.
+      </p>
+      <div class="flex gap-6">
+        <a href="/privacy" class="text-gray-400 hover:text-craft-red text-sm transition-colors">
+          Privacy
+        </a>
+        <a href="/terms" class="text-gray-400 hover:text-craft-red text-sm transition-colors">
+          Terms
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+

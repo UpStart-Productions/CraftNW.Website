@@ -1,0 +1,22 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Install deps using npm + package-lock.json
+        - nvm use 20
+        - npm ci
+    build:
+      commands:
+        # Build Astro → outputs to /dist
+        - npm run build
+  artifacts:
+    # Publish the static site from /dist
+    baseDirectory: dist
+    files:
+      - '**/*'
+  cache:
+    # Cache node_modules between builds
+    paths:
+      - node_modules/**/*
+

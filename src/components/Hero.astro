@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  backgroundImage?: string;
+  height?: "small" | "medium" | "large" | "full";
+}
+
+const {
+  title,
+  subtitle,
+  ctaText = "Shop Now",
+  ctaLink = "/shop",
+  backgroundImage = "/images/hero-default.jpg",
+  height = "large",
+} = Astro.props;
+
+const heightClasses = {
+  small: "min-h-[50vh]",
+  medium: "min-h-[60vh]",
+  large: "min-h-[70vh]",
+  full: "min-h-screen",
+};
+---
+
+<section
+  class={`relative ${heightClasses[height]} flex items-center justify-center overflow-hidden`}
+  style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`}
+>
+  <!-- Overlay for better text readability -->
+  <div class="absolute inset-0 bg-craft-black/30"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 container-craft text-center px-6">
+    <h1 class="text-craft-white drop-shadow-2xl mb-6">
+      {title}
+    </h1>
+    {subtitle && (
+      <p class="text-craft-white text-xl md:text-2xl mb-8 max-w-2xl mx-auto drop-shadow-lg">
+        {subtitle}
+      </p>
+    )}
+    {ctaText && ctaLink && (
+      <a href={ctaLink} class="btn-primary inline-block text-lg">
+        {ctaText}
+      </a>
+    )}
+  </div>
+</section>
+
