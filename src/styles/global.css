@@ -135,6 +135,10 @@
     color: var(--craft-charcoal);
   }
   
+  .text-craft-white {
+    color: var(--craft-white);
+  }
+  
   .text-craft-brown {
     color: var(--craft-brown);
   }

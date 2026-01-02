@@ -2,29 +2,50 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Hero from "../components/Hero.astro";
+import ImageCarousel, { type CarouselSlide } from "../components/ImageCarousel.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import ProductCard from "../components/ProductCard.astro";
 import { getFeaturedProducts } from "../data/products";
 import { ArrowRight } from "lucide-astro";
 
 const featuredProducts = getFeaturedProducts();
+
+// Carousel slides from the lamps collection
+const heroSlides: CarouselSlide[] = [
+  {
+    image: "/images/hero/lamps/Lamp 1 Pic 3.jpg",
+    title: "Handcrafted for Your Home",
+    subtitle: "Quality Woodworking",
+    description: "Custom lamps, furniture, and home goods made with care in Newberg, Oregon",
+    textColor: "white",
+  },
+  {
+    image: "/images/hero/lamps/Lamp 2 Pic 1.jpg",
+    title: "Unique Lighting",
+    subtitle: "One-of-a-Kind Designs",
+    description: "Each piece is carefully crafted to bring warmth and character to your space",
+    textColor: "charcoal",
+  },
+  {
+    image: "/images/hero/lamps/Lamp 2 Pic 7.jpg",
+    title: "Made in Oregon",
+    subtitle: "Pacific Northwest Craftsmanship",
+    description: "Supporting local artisans and sustainable practices",
+    textColor: "white",
+  },
+];
 ---
 
 <BaseLayout>
   <Header />
-  
-  <!-- Add padding for fixed header -->
-  <div class="pt-32 md:pt-36"></div>
 
-  <!-- Hero Section -->
-  <Hero
-    title="Handcrafted for Your Home"
-    subtitle="Quality woodworking, productivity tools, and printables made with care in Newberg, Oregon"
-    ctaText="Shop Products"
-    ctaLink="/shop"
-    backgroundImage="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=1600&q=80"
+  <!-- Hero Carousel Section -->
+  <ImageCarousel
+    slides={heroSlides}
     height="large"
+    zoomDuration={8}
+    displayDuration={6}
+    fadeTransition={2}
   />
 
   <!-- Featured Products Section -->
