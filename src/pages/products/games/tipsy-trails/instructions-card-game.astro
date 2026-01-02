@@ -1,0 +1,162 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import Header from "../../../../components/Header.astro";
+import Footer from "../../../../components/Footer.astro";
+import SectionHeader from "../../../../components/SectionHeader.astro";
+import { ArrowLeft } from "lucide-astro";
+
+const rules = [
+  {
+    title: "Waterfall",
+    image: "/images/products/tipsy-trails/waterfall.jpg",
+    content: `Good luck! The player that lands on this space is the one to initiate The Waterfall. Once they start drinking everyone else in the group must promptly begin to drink as well. Players cannot stop drinking until it is their turn. The initiating player stops first, then the player to their left, then the player to that player's left, so on and so forth. So, the person to the initiating players right should be drinking for the longest amount of time as they cannot stop drinking until everyone else does.`,
+  },
+  {
+    title: "Thumb Master",
+    image: "/images/products/tipsy-trails/thumb-master.jpg",
+    content: `The player who lands on this space wields the power of the Thumb Master until someone else in the game lands on a Thumb Master space. This means that at any time, at their discretion, they can put their thumb on the table and the last player to notice and also put their thumb on the table loses and has a penalty drink. This can be used as many times as the individual wants while they wield the power, but should be done discreetly...in other words, players who notice should also be discrete and not announce it to the group.`,
+  },
+  {
+    title: "7 Heaven",
+    image: "/images/products/tipsy-trails/7-heaven.jpg",
+    content: `This space is a bit like Thumb Master. However, the person who lands on this space may only use its power once, and it must be before their next turn. When they point their finger to the sky, the last player to also point their finger skyward must drink.`,
+  },
+  {
+    title: "Drive",
+    image: "/images/products/tipsy-trails/drive.jpg",
+    content: `A player that lands on this space Initiates the Drive game once. All players must pretend they are gripping a steering wheel with both thumbs pointed up. The Initiating player says VROOM and points both thumbs either left or right. The player toward whom the thumbs are pointed must then say either VROOM (thumbs pointed the same direction toward the next player) or a SKIRRRRT (thumbs pointed the opposite direction to the proceeding player). If a player messes up or hesitates, they take a drink.`,
+  },
+  {
+    title: "Hot Seat",
+    image: "/images/products/tipsy-trails/hot-seat.jpg",
+    content: `This one can be fun! The player that lands on this space can chose any other player to put In the Hot Seat and ask 1 question. Any question Is fair game for the player In the Hot Seat no matter how embarrassing, personal, or ridiculous. A satisfactory answer Is determined solely by the player that landed on the Hot Seat space. An unsatisfactory answer means the player In the Hot Seat must drink.`,
+  },
+  {
+    title: "Play Little Green Man",
+    image: "/images/products/tipsy-trails/little-green-man.jpg",
+    content: `This one Is simple, but easy to forget. The player that lands on this space must, for the duration of the game, pretend that a Little Green Man Is sitting on the rim of their drink. So, of course, whenever that player takes a drink, they must first remove the Little Green Man, take a drink, then gently return the Little Green Man to his rightful place on the rim of their drink. If the player, goodness forbid, forgets to remove or replace the Little Green Man, they must take an additional drink....removing and replacing the Little Green Man.`,
+  },
+  {
+    title: "Make a Rule",
+    image: "/images/products/tipsy-trails/make-a-rule.jpg",
+    content: `The player who lands on this space gets to make up their own rule, which all players (including themselves) must follow until someone else in the group lands on one of these spaces and makes a new rule. Some examples are as follows: All players must speak in an accent; You cannot refer to anyone by their name; No curse words allowed; Everyone must drink only with their non dominant hand. The penalty for breaking the rule is typically 1 drink but your group may make alterations as desired.`,
+  },
+  {
+    title: "Monkey Drink",
+    image: "/images/products/tipsy-trails/monkey-drink.jpg",
+    content: `This one Is brutal! In order to complete the "monkey drink" the player who lands on this space must do a handstand (against a wall is recommended) and someone else in the group pours the players drink into their mouth while they are in the upside down position. Try not to get it in their nose and have fun!`,
+  },
+  {
+    title: "Pick a Mate",
+    image: "/images/products/tipsy-trails/pick-a-mate.jpg",
+    content: `The player (player 1) who lands on this space gets to choose one other player to be their "mate" (player 2). This means that every time player 1 has to drink in the game, so does player 2, and vice versa. This mateship lasts until someone else lands on the mate space. There should not be more than one mated couple at any time during the game.`,
+  },
+  {
+    title: "Play a Game",
+    image: "/images/products/tipsy-trails/play-a-game.jpg",
+    content: `It's wise to approach Tipsy Trails with a game or two In mind as opposed to thinking up something on the spot. It just keeps the whole thing moving along faster. Whoever lands on this space gets to dictate a mini game-within-a-game to the rest of the group that must be played to Its conclusion before the next player can roll the dice. Some examples of good games are: Categories: player selects a category (let's say Craft Beers from the Pacific Northwest) and all players must, In turn, accurately say something from the chosen category. Rhyme: player starts with a word or phrase and all other players must say a word or phrase that rhymes. Tic-Tac-Toe: player selects 2 people to play tic-tac-toe In under 10 seconds. Capitals: each player must name a different state capital. Of course, whomever fails at any game must take at least 1 drink. However, It's up to the player that lands on this space to dictate the number of penalty drinks.`,
+  },
+  {
+    title: "Give $5 to Charity",
+    image: "/images/products/tipsy-trails/give-charity.jpg",
+    content: `If a player lands on this space, they have until their next turn to donate $5 to a charity of their choice. If the player cannot show a receipt for a $5 donation by their next turn, they must take a shot.`,
+  },
+  {
+    title: "Play Your Song",
+    image: "/images/products/tipsy-trails/play-your-song.jpg",
+    content: `A player that lands on this space must play 30 seconds of their current favorite song and then take a vote of all players. If the majority of players dislike the song, the player must drink.`,
+  },
+];
+---
+
+<BaseLayout title="Tipsy Trails Card Game Instructions - CraftNW">
+  <Header />
+  <div class="pt-32 md:pt-36"></div>
+
+  {/* Page Header with Image */}
+  <section class="bg-craft-tan py-16">
+    <div class="container-craft text-center">
+      <img
+        src="/images/products/tipsy-trails/tipsy-trails-logo.png"
+        alt="Tipsy Trails Card Game"
+        class="w-full max-w-2xl mx-auto mb-8 rounded-lg"
+      />
+      <h1 class="text-craft-black mb-4">Tipsy Trails Card Game</h1>
+      <p class="text-craft-charcoal text-xl max-w-2xl mx-auto">
+        Instructions for the card game version
+      </p>
+    </div>
+  </section>
+
+  <section class="section-padding bg-craft-cream">
+    <div class="container-craft">
+
+      {/* How to Play */}
+      <div class="bg-craft-white rounded-lg shadow-md mb-12 max-w-4xl mx-auto" style="padding: 3rem;">
+        <h2 class="text-craft-black mb-6">How to Play</h2>
+        <div class="space-y-4 text-craft-charcoal text-base leading-relaxed">
+          <p>
+            Print, cut, and shuffle the cards so that duplicate cards are spread out. Place cards in a stack, face down, on the table. Have each player draw a card, determine a starting player and direction of game play.
+          </p>
+          <p>
+            In turn, each player does what their card tells them to do, discards, and draws a new card to be played on their next turn. If a player draws a <strong>Steal</strong> card, they should discretely place it face down in front of them and draw another card for their next turn.
+          </p>
+          <p>
+            <strong>The objective to Tipsy Trails is to collect all of the Collector cards or have the most Collector cards at the end of the game, whichever comes first.</strong>
+          </p>
+          <p>
+            Many of the cards in Tipsy Trails are self-explanatory. Refer to the instructions below for Activity cards that may not be obvious.
+          </p>
+        </div>
+      </div>
+
+      {/* Activity Cards */}
+      <h2 class="text-craft-black mb-8 text-center">Activity Cards</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {rules.map((rule) => (
+          <div class="card overflow-hidden">
+            <img src={rule.image} alt={rule.title} class="w-full aspect-square object-cover" />
+            <div class="p-6">
+              <h3 class="text-craft-black mb-3">{rule.title}</h3>
+              <p class="text-craft-charcoal text-base">{rule.content}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Collector Cards */}
+      <h2 class="text-craft-black mb-8 text-center">Collector Cards</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
+        <div class="card overflow-hidden">
+          <img src="/images/products/tipsy-trails/tipsy-travel-cards.jpg" alt="Tipsy Travel Cards" class="w-full aspect-square object-cover" />
+          <div class="p-6">
+            <h3 class="text-craft-black mb-3">Tipsy Travel Cards</h3>
+            <p class="text-craft-charcoal text-base">
+              There are 2 ways to win Tipsy Trails the Card Game: Collect all 5 Tipsy Travel destination cards (Tipsy Trees, Sloppy Swamp, Downtown Drinks, Hammered Hills, and Blackout Beach), or collect the most unique Tipsy Travel cards by the end of the game. The game ends when all cards in the deck have been played or whenever the group decides to stop playing. You can continue to play after all cards have been played if you want to by simply reshuffling the cards into a new stack.
+            </p>
+          </div>
+        </div>
+        
+        <div class="card overflow-hidden">
+          <img src="/images/products/tipsy-trails/take-a-tipsy-travel.jpg" alt="Take a Tipsy Travel" class="w-full aspect-square object-cover" />
+          <div class="p-6">
+            <h3 class="text-craft-black mb-3">Take a Tipsy Travel</h3>
+            <p class="text-craft-charcoal text-base">
+              Drawing this card allows the player to steal a Tipsy Travel card from any other player that may have one. If no players have a Tipsy Travel card yet, the player should discretely place this card face down in front of them and draw another card for their NEXT turn. The player may then use this card at any point during the game when their turn comes up.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="/products/games/tipsy-trails" class="btn-secondary inline-flex items-center gap-2">
+          <ArrowLeft class="w-5 h-5" />
+          <span>Back to Tipsy Trails</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+

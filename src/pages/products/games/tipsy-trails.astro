@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+---
+
+<BaseLayout
+  title="Tipsy Trails - CraftNW"
+  description="Tipsy Trails game information and legacy content."
+>
+  <Header />
+  
+  <!-- Add padding for fixed header -->
+  <div class="pt-32 md:pt-36"></div>
+
+  <!-- Page Header -->
+  <section class="bg-craft-tan py-16">
+    <div class="container-craft text-center">
+      <h1 class="text-craft-black mb-4">
+        Tipsy Trails
+      </h1>
+      <p class="text-craft-charcoal text-xl max-w-2xl mx-auto">
+        Legacy game content
+      </p>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section-padding bg-craft-cream">
+    <div class="container-craft max-w-4xl">
+      <div class="prose prose-lg max-w-none space-y-8 text-craft-charcoal">
+        <p class="text-lg">
+          Content coming soon...
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
