@@ -11,15 +11,22 @@ const navItems = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-craft-white border-b border-craft-warm-gray">
+<header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-craft-white border-b border-craft-warm-gray transition-all duration-300">
   <nav class="container-craft">
-    <div class="flex items-center justify-between py-4 md:py-6">
+    <div id="header-content" class="flex items-center justify-between py-4 md:py-6 transition-all duration-300">
       <!-- Logo -->
-      <a href="/" class="flex items-center">
+      <a href="/" class="flex items-center relative">
         <img
+          id="logo-large"
           src="/images/branding/Craft NW Logo Standard.svg"
           alt="CraftNW"
-          class="h-24 md:h-30 w-auto"
+          class="h-24 md:h-30 w-auto transition-all duration-300"
+        />
+        <img
+          id="logo-small"
+          src="/images/branding/logo-small.png"
+          alt="CraftNW"
+          class="h-16 w-auto absolute top-0 left-0 opacity-0 transition-all duration-300"
         />
       </a>
 
@@ -168,6 +175,68 @@ const navItems = [
         closeIcon.style.opacity = "0";
       }
     }
+  });
+
+  // Scroll detection for header shrinking
+  const header = document.getElementById("main-header");
+  const headerContent = document.getElementById("header-content");
+  const logoLarge = document.getElementById("logo-large");
+  const logoSmall = document.getElementById("logo-small");
+  
+  let lastScrollY = window.scrollY;
+  let isScrollingDown = false;
+  let isShrunken = false;
+
+  function handleScroll() {
+    const currentScrollY = window.scrollY;
+    
+    // Determine scroll direction
+    isScrollingDown = currentScrollY > lastScrollY;
+    lastScrollY = currentScrollY;
+
+    // Shrink when scrolling down and past a certain threshold
+    const shouldShrink = currentScrollY > 100;
+
+    if (shouldShrink && !isShrunken) {
+      // Shrink header
+      isShrunken = true;
+      if (headerContent) {
+        headerContent.style.paddingTop = "0.5rem";
+        headerContent.style.paddingBottom = "0.5rem";
+      }
+      if (logoLarge) {
+        logoLarge.style.opacity = "0";
+        logoLarge.style.height = "0";
+      }
+      if (logoSmall) {
+        logoSmall.style.opacity = "1";
+        logoSmall.style.position = "relative";
+      }
+    } else if (!shouldShrink && isShrunken) {
+      // Expand header back to normal
+      isShrunken = false;
+      if (headerContent) {
+        headerContent.style.paddingTop = "";
+        headerContent.style.paddingBottom = "";
+      }
+      if (logoLarge) {
+        logoLarge.style.opacity = "1";
+        logoLarge.style.height = "";
+      }
+      if (logoSmall) {
+        logoSmall.style.opacity = "0";
+        logoSmall.style.position = "absolute";
+      }
+    }
+  }
+
+  // Throttle scroll events for better performance
+  let scrollTimeout: number | undefined;
+  window.addEventListener("scroll", () => {
+    if (scrollTimeout) {
+      window.cancelAnimationFrame(scrollTimeout);
+    }
+    scrollTimeout = window.requestAnimationFrame(handleScroll);
   });
 </script>
 
