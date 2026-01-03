@@ -5,7 +5,7 @@ const currentPath = Astro.url.pathname;
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Shop", href: "/shop" },
+  { name: "Products", href: "/products" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
@@ -18,7 +18,7 @@ const navItems = [
       <a href="/" class="flex items-center relative">
         <img
           id="logo-large"
-          src="/images/branding/Craft NW Logo Standard.svg"
+          src="/images/branding/logo-standard.svg"
           alt="CraftNW"
           class="h-24 md:h-30 w-auto transition-all duration-300"
         />
@@ -52,14 +52,14 @@ const navItems = [
         }
       </div>
 
-      <!-- Shop CTA Button -->
+      <!-- Products CTA Button -->
       <div class="hidden md:block">
         <a
-          href="/shop"
+          href="/products"
           class="btn-primary flex items-center gap-2"
         >
           <ShoppingBag class="w-5 h-5" />
-          <span>Shop</span>
+          <span>Products</span>
         </a>
       </div>
 
@@ -116,11 +116,11 @@ const navItems = [
         ))
       }
       <a
-        href="/shop"
+        href="/products"
         class="btn-primary w-full mt-4 flex items-center justify-center gap-2"
       >
         <ShoppingBag class="w-5 h-5" />
-        <span>Shop</span>
+        <span>Products</span>
       </a>
     </div>
   </div>

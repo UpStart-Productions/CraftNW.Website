@@ -238,7 +238,7 @@ transition: all 0.3s ease;  /* Cards, images */
 
 ### Logo
 
-- **Primary**: Dark logo (`craftnw-logo.svg`) on light backgrounds
+- **Primary**: Standard logo (`logo-standard.svg`) on light backgrounds
 - **Light**: Light logo (`craftnw-logo-light.svg`) on dark backgrounds
 - **Minimum size**: 60px height
 - **Clear space**: Equal to logo height on all sides

@@ -122,7 +122,7 @@ The homepage includes:
 /
 ├── public/
 │   ├── images/
-│   │   ├── craftnw-logo.svg          # Dark logo (for light backgrounds)
+│   │   ├── logo-standard.svg         # Standard logo (for light backgrounds)
 │   │   ├── craftnw-logo-light.svg    # Light logo (for dark backgrounds)
 │   │   └── products/                  # Product images go here
 │   └── favicon.svg

@@ -1,0 +1,138 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import ProductImageCarousel from "../../../components/ProductImageCarousel.astro";
+import { ArrowRight, ShoppingBag } from "lucide-astro";
+
+// All lamp hero images
+const lampImages = [
+  "/images/products/lamps/hero/lamp-1.jpg",
+  "/images/products/lamps/hero/lamp-2.jpg",
+  "/images/products/lamps/hero/lamp-3.jpg",
+  "/images/products/lamps/hero/lamp-4.jpg",
+  "/images/products/lamps/hero/lamp-5.jpg",
+  "/images/products/lamps/hero/lamp-6.jpg",
+  "/images/products/lamps/hero/lamp-7.jpg",
+  "/images/products/lamps/hero/lamp-8.jpg",
+];
+---
+
+<BaseLayout
+  title="Handcrafted Lamps - CraftNW"
+  description="Unique, one-of-a-kind handcrafted lamps made in Newberg, Oregon. Each lamp is carefully crafted to bring warmth and character to your space."
+>
+  <Header />
+  
+  <!-- Add padding for fixed header -->
+  <div class="pt-32 md:pt-36"></div>
+
+  <!-- Page Header -->
+  <section class="bg-craft-tan py-16">
+    <div class="container-craft text-center">
+      <h1 class="text-craft-black mb-4">
+        Handcrafted Lamps
+      </h1>
+      <p class="text-craft-charcoal text-xl max-w-2xl mx-auto">
+        Unique lighting pieces that bring warmth and character to any space
+      </p>
+    </div>
+  </section>
+
+  <!-- Product Showcase -->
+  <section class="section-padding bg-craft-cream">
+    <div class="container-craft">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <!-- Image Carousel -->
+        <div class="sticky top-32">
+          <div class="bg-craft-white rounded-lg shadow-lg overflow-hidden">
+            <ProductImageCarousel images={lampImages} alt="Handcrafted Lamp" />
+          </div>
+        </div>
+
+        <!-- Product Details -->
+        <div>
+          <div class="bg-craft-white rounded-lg shadow-md p-8 md:p-10">
+            <h2 class="text-craft-black mb-6">About Our Lamps</h2>
+            <div class="space-y-4 text-craft-charcoal text-lg leading-relaxed">
+              <p>
+                Each lamp is a unique piece of functional art, handcrafted in our Newberg, Oregon workshop. We combine traditional woodworking techniques with modern design sensibilities to create lighting that's both beautiful and practical.
+              </p>
+              <p>
+                Our lamps feature carefully selected wood, quality electrical components, and finishes that highlight the natural beauty of the materials. From rustic to contemporary, each piece is designed to complement your space while providing warm, ambient lighting.
+              </p>
+              <p>
+                Every lamp is one-of-a-kind, reflecting the unique character of the wood and the care put into its creation. No two pieces are exactly alike, making your lamp truly special.
+              </p>
+            </div>
+
+            <div class="mt-8 p-6 bg-craft-cream rounded-lg">
+              <h3 class="text-craft-black mb-4">Features</h3>
+              <ul class="space-y-2 text-craft-charcoal">
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Handcrafted from quality hardwoods and natural materials</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>UL-listed electrical components for safety</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Custom finishes to highlight natural wood beauty</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>One-of-a-kind designs - no two exactly alike</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Made in Newberg, Oregon with care and attention to detail</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8 p-6 bg-craft-tan rounded-lg border-2 border-craft-brown">
+              <h3 class="text-craft-black mb-3">Available on Etsy</h3>
+              <p class="text-craft-charcoal mb-4">
+                Browse our current selection of handcrafted lamps on Etsy. Each listing includes detailed photos and specifications.
+              </p>
+              <a 
+                href="https://www.etsy.com/shop/CraftNW" 
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary inline-flex items-center gap-2"
+              >
+                <ShoppingBag class="w-5 h-5" />
+                <span>Shop on Etsy</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Custom Orders -->
+          <div class="mt-8 bg-craft-white rounded-lg shadow-md p-8 md:p-10">
+            <h2 class="text-craft-black mb-4">Custom Orders</h2>
+            <p class="text-craft-charcoal text-lg mb-6">
+              Looking for something specific? We welcome custom lamp orders. Whether you have a particular style in mind, specific dimensions, or want to incorporate special materials, we'd love to work with you to create the perfect piece for your space.
+            </p>
+            <a href="/contact" class="btn-secondary inline-flex items-center gap-2">
+              <span>Request Custom Order</span>
+              <ArrowRight class="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-12 text-center">
+        <a href="/products" class="btn-secondary inline-flex items-center gap-2">
+          <span>Browse All Products</span>
+          <ArrowRight class="w-5 h-5" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+

@@ -1,0 +1,159 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import ProductImageCarousel from "../../../components/ProductImageCarousel.astro";
+import { ArrowRight, ShoppingBag } from "lucide-astro";
+
+// All stump table hero images
+const stumpImages = [
+  "/images/products/stump-tables/hero/stump-1.jpg",
+  "/images/products/stump-tables/hero/stump-2.jpg",
+  "/images/products/stump-tables/hero/stump-3.jpg",
+  "/images/products/stump-tables/hero/stump-4.jpg",
+  "/images/products/stump-tables/hero/stump-5.jpg",
+  "/images/products/stump-tables/hero/stump-6.jpg",
+  "/images/products/stump-tables/hero/stump-7.jpg",
+  "/images/products/stump-tables/hero/stump-8.jpg",
+  "/images/products/stump-tables/hero/stump-9.jpg",
+];
+---
+
+<BaseLayout
+  title="Stump Tables - CraftNW"
+  description="Rustic stump tables handcrafted in Newberg, Oregon. Bring the natural beauty of the Pacific Northwest into your home with these unique pieces."
+>
+  <Header />
+  
+  <!-- Add padding for fixed header -->
+  <div class="pt-32 md:pt-36"></div>
+
+  <!-- Page Header -->
+  <section class="bg-craft-tan py-16">
+    <div class="container-craft text-center">
+      <h1 class="text-craft-black mb-4">
+        Stump Tables
+      </h1>
+      <p class="text-craft-charcoal text-xl max-w-2xl mx-auto">
+        Rustic furniture that brings the beauty of nature into your living space
+      </p>
+    </div>
+  </section>
+
+  <!-- Product Showcase -->
+  <section class="section-padding bg-craft-cream">
+    <div class="container-craft">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <!-- Image Carousel -->
+        <div class="sticky top-32">
+          <div class="bg-craft-white rounded-lg shadow-lg overflow-hidden">
+            <ProductImageCarousel images={stumpImages} alt="Stump Table" />
+          </div>
+        </div>
+
+        <!-- Product Details -->
+        <div>
+          <div class="bg-craft-white rounded-lg shadow-md p-8 md:p-10">
+            <h2 class="text-craft-black mb-6">About Our Stump Tables</h2>
+            <div class="space-y-4 text-craft-charcoal text-lg leading-relaxed">
+              <p>
+                Our stump tables celebrate the raw, natural beauty of Pacific Northwest wood. Each piece begins as a carefully selected tree stump, which we transform into a functional work of art that brings the outdoors inside.
+              </p>
+              <p>
+                These tables showcase the unique character of the wood—natural grain patterns, organic shapes, and the story of the tree's growth. We preserve the authentic look while ensuring stability and durability for everyday use.
+              </p>
+              <p>
+                Perfect as side tables, plant stands, or accent pieces, each stump table is completely unique. The natural variations in wood grain, color, and shape mean your piece is truly one-of-a-kind.
+              </p>
+            </div>
+
+            <div class="mt-8 p-6 bg-craft-cream rounded-lg">
+              <h3 class="text-craft-black mb-4">Features</h3>
+              <ul class="space-y-2 text-craft-charcoal">
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Sourced from Pacific Northwest trees</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Natural, organic shapes and grain patterns</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Carefully dried and treated for stability</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Protective finish to preserve natural beauty</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Sturdy and functional for everyday use</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Each piece is completely unique</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8 p-6 bg-craft-tan rounded-lg border-2 border-craft-brown">
+              <h3 class="text-craft-black mb-3">Available on Etsy</h3>
+              <p class="text-craft-charcoal mb-4">
+                Browse our current selection of stump tables on Etsy. Each listing includes detailed photos showing the unique character of that specific piece.
+              </p>
+              <a 
+                href="https://www.etsy.com/shop/CraftNW" 
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary inline-flex items-center gap-2"
+              >
+                <ShoppingBag class="w-5 h-5" />
+                <span>Shop on Etsy</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Care Instructions -->
+          <div class="mt-8 bg-craft-white rounded-lg shadow-md p-8 md:p-10">
+            <h2 class="text-craft-black mb-4">Care Instructions</h2>
+            <div class="space-y-3 text-craft-charcoal">
+              <p>
+                <strong>Cleaning:</strong> Wipe with a soft, dry cloth. For deeper cleaning, use a slightly damp cloth followed by immediate drying.
+              </p>
+              <p>
+                <strong>Placement:</strong> Keep away from direct sunlight and heat sources to prevent cracking or fading.
+              </p>
+              <p>
+                <strong>Maintenance:</strong> Apply furniture wax or wood conditioner occasionally to maintain the finish and protect the wood.
+              </p>
+            </div>
+          </div>
+
+          <!-- Custom Orders -->
+          <div class="mt-8 bg-craft-white rounded-lg shadow-md p-8 md:p-10">
+            <h2 class="text-craft-black mb-4">Custom Orders</h2>
+            <p class="text-craft-charcoal text-lg mb-6">
+              Looking for a specific size or style? We can work with you to create a custom stump table that fits your space perfectly. Contact us to discuss your vision and we'll help bring it to life.
+            </p>
+            <a href="/contact" class="btn-secondary inline-flex items-center gap-2">
+              <span>Request Custom Order</span>
+              <ArrowRight class="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-12 text-center">
+        <a href="/products" class="btn-secondary inline-flex items-center gap-2">
+          <span>Browse All Products</span>
+          <ArrowRight class="w-5 h-5" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+

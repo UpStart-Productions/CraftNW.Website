@@ -10,48 +10,66 @@ import { ArrowRight } from "lucide-astro";
 
 const featuredProducts = getFeaturedProducts();
 
-// Carousel slides from the lamps collection
+// Carousel slides - 2 images from each product category
 const heroSlides: CarouselSlide[] = [
+  // Lamps
   {
-    image: "/images/hero/lamps/Lamp 1 Pic 3.jpg",
+    image: "/images/products/lamps/hero/lamp-1.jpg",
     title: "Handcrafted for Your Home",
     subtitle: "Quality Woodworking",
     description: "Custom lamps, furniture, and home goods made with care in Newberg, Oregon",
     textColor: "white",
   },
   {
-    image: "/images/hero/lamps/Lamp 2 Pic 1.jpg",
+    image: "/images/products/lamps/hero/lamp-3.jpg",
     title: "Unique Lighting",
     subtitle: "One-of-a-Kind Designs",
     description: "Each piece is carefully crafted to bring warmth and character to your space",
     textColor: "white",
   },
+  // Stump Tables
   {
-    image: "/images/hero/stumps/stump-2.jpg",
+    image: "/images/products/stump-tables/hero/stump-2.jpg",
+    title: "Natural Beauty",
+    subtitle: "Rustic Stump Tables",
+    description: "Bringing the beauty of nature into your living space",
+    textColor: "white",
+  },
+  {
+    image: "/images/products/stump-tables/hero/stump-5.jpg",
     title: "Made in Oregon",
     subtitle: "Pacific Northwest Craftsmanship",
     description: "Supporting local artisans and sustainable practices",
     textColor: "white",
   },
+  // Tipsy Trails
   {
-    image: "/images/hero/lamps/Lamp 2 Pic 7.jpg",
-    title: "Made in Oregon",
-    subtitle: "Pacific Northwest Craftsmanship",
-    description: "Supporting local artisans and sustainable practices",
+    image: "/images/products/tipsy-trails/hero/tt-1.jpg",
+    title: "Game Night Fun",
+    subtitle: "Tipsy Trails",
+    description: "The ultimate drinking game for unforgettable nights with friends",
     textColor: "white",
   },
   {
-    image: "/images/hero/lamps/Lamp 2 Pic 10.jpg",
-    title: "Made in Oregon",
-    subtitle: "Pacific Northwest Craftsmanship",
-    description: "Supporting local artisans and sustainable practices",
+    image: "/images/products/tipsy-trails/hero/tt-4.jpg",
+    title: "Party Ready",
+    subtitle: "Tipsy Trails Game",
+    description: "Create memories and laughter with this exciting card game",
+    textColor: "white",
+  },
+  // NextMove Cards
+  {
+    image: "/images/products/nextmove/hero/cards-1.jpg",
+    title: "Stay Productive",
+    subtitle: "NextMove Productivity Cards",
+    description: "Plan your day and prioritize what matters most",
     textColor: "white",
   },
   {
-    image: "/images/hero/stumps/stump-1.jpg",
-    title: "Made in Oregon",
-    subtitle: "Pacific Northwest Craftsmanship",
-    description: "Supporting local artisans and sustainable practices",
+    image: "/images/products/nextmove/hero/cards-2.jpg",
+    title: "Get Organized",
+    subtitle: "Free Printable Cards",
+    description: "Download and print your own productivity system",
     textColor: "white",
   },
 ];
@@ -91,7 +109,7 @@ const heroSlides: CarouselSlide[] = [
       </div>
 
       <div class="text-center">
-        <a href="/shop" class="btn-primary inline-flex items-center gap-2">
+        <a href="/products" class="btn-primary inline-flex items-center gap-2">
           <span>View All Products</span>
           <ArrowRight class="w-5 h-5" />
         </a>
@@ -160,4 +178,5 @@ const heroSlides: CarouselSlide[] = [
 
   <Footer />
 </BaseLayout>
+
 

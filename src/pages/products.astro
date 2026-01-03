@@ -1,0 +1,150 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ProductImageCarousel from "../components/ProductImageCarousel.astro";
+
+// Define the 4 main products with their hero images
+const products = [
+  {
+    id: "lamps",
+    name: "Handcrafted Lamps",
+    description: "Unique, one-of-a-kind lamps that bring warmth and character to any space. Each lamp is carefully crafted with attention to detail and quality.",
+    images: [
+      "/images/products/lamps/hero/lamp-1.jpg",
+      "/images/products/lamps/hero/lamp-2.jpg",
+      "/images/products/lamps/hero/lamp-3.jpg",
+      "/images/products/lamps/hero/lamp-4.jpg",
+    ],
+    link: "/products/woodworking/lamps",
+    category: "Woodworking",
+  },
+  {
+    id: "stump-tables",
+    name: "Stump Tables",
+    description: "Rustic stump tables that bring the natural beauty of the Pacific Northwest into your home. Each piece showcases the unique character of the wood.",
+    images: [
+      "/images/products/stump-tables/hero/stump-1.jpg",
+      "/images/products/stump-tables/hero/stump-2.jpg",
+      "/images/products/stump-tables/hero/stump-3.jpg",
+      "/images/products/stump-tables/hero/stump-4.jpg",
+    ],
+    link: "/products/woodworking/stump-tables",
+    category: "Woodworking",
+  },
+  {
+    id: "tipsy-trails",
+    name: "Tipsy Trails",
+    description: "The ultimate drinking game for unforgettable nights with friends. Navigate the board, draw cards, and create memories that will last a lifetime.",
+    images: [
+      "/images/products/tipsy-trails/hero/tt-1.jpg",
+      "/images/products/tipsy-trails/hero/tt-2.jpg",
+      "/images/products/tipsy-trails/hero/tt-3.jpg",
+      "/images/products/tipsy-trails/hero/tt-4.jpg",
+    ],
+    link: "/products/games/tipsy-trails",
+    category: "Games",
+  },
+  {
+    id: "nextmove-cards",
+    name: "NextMove Productivity Cards",
+    description: "Free printable productivity cards to help you plan your day, prioritize tasks, and stay focused on what matters most. Download and print at home.",
+    images: [
+      "/images/products/nextmove/hero/cards-1.jpg",
+      "/images/products/nextmove/hero/cards-2.jpg",
+      "/images/products/nextmove/hero/cards-1.jpg",
+      "/images/products/nextmove/hero/cards-2.jpg",
+    ],
+    link: "/products/printables/nextmove-productivity-cards",
+    category: "Printables",
+  },
+];
+---
+
+<BaseLayout
+  title="Products - CraftNW"
+  description="Browse our collection of handcrafted woodworking, games, and printables made with care in Newberg, Oregon."
+>
+  <Header />
+  
+  <!-- Add padding for fixed header -->
+  <div class="pt-32 md:pt-36"></div>
+
+  <!-- Page Header -->
+  <section class="bg-craft-tan py-16">
+    <div class="container-craft text-center">
+      <h1 class="text-craft-black mb-4">
+        Our Products
+      </h1>
+      <p class="text-craft-charcoal text-xl max-w-2xl mx-auto">
+        Each piece is handcrafted with care in Newberg, Oregon. Explore our collection of woodworking, games, and printables.
+      </p>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section-padding bg-craft-cream">
+    <div class="container-craft">
+      <div class="space-y-16">
+        {products.map((product, index) => (
+          <article class="bg-craft-white rounded-lg shadow-lg overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+              <!-- Image Carousel -->
+              <div class={`${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
+                <ProductImageCarousel images={product.images} />
+              </div>
+
+              <!-- Product Info -->
+              <div class={`p-8 md:p-12 flex flex-col justify-center ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
+                <div class="inline-block mb-4">
+                  <span class="text-xs font-medium uppercase tracking-wider text-craft-red bg-craft-tan px-3 py-1 rounded-full">
+                    {product.category}
+                  </span>
+                </div>
+                
+                <h2 class="text-3xl md:text-4xl font-medium text-craft-black mb-4">
+                  {product.name}
+                </h2>
+                
+                <p class="text-craft-charcoal text-lg mb-8 leading-relaxed">
+                  {product.description}
+                </p>
+
+                <div>
+                  <a 
+                    href={product.link} 
+                    class="btn-primary inline-flex items-center gap-2"
+                  >
+                    <span>Learn More</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding bg-craft-white">
+    <div class="container-craft text-center">
+      <h2 class="text-craft-black mb-6">
+        Custom Orders Welcome
+      </h2>
+      <p class="text-craft-charcoal text-lg mb-8 max-w-2xl mx-auto">
+        Have a specific project in mind? I'd love to work with you on a custom piece. Get in touch to discuss your ideas.
+      </p>
+      <a href="/contact" class="btn-primary inline-flex items-center gap-2">
+        <span>Contact Me</span>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
