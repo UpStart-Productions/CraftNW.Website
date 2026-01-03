@@ -4,7 +4,7 @@ export interface Product {
   category: "Woodworking" | "Productivity Cards" | "Greeting Cards" | "Printables";
   price: string;
   description: string;
-  image: string;
+  image: string | string[]; // Can be single image or array of images
   etsyLink: string;
   featured?: boolean;
 }
@@ -16,7 +16,11 @@ export const products: Product[] = [
     category: "Woodworking",
     price: "$65",
     description: "Handcrafted oak desk organizer with multiple compartments for pens, cards, and small items.",
-    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80",
+    image: [
+      "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80",
+      "https://images.unsplash.com/photo-1565120130276-dfbd9a7a3ad7?w=800&q=80",
+      "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?w=800&q=80",
+    ],
     etsyLink: "https://www.etsy.com/shop/CraftNW",
     featured: true,
   },
@@ -31,13 +35,16 @@ export const products: Product[] = [
     featured: true,
   },
   {
-    id: "productivity-card-set",
-    name: "Daily Focus Cards",
-    category: "Productivity Cards",
-    price: "$24",
-    description: "Set of 50 productivity cards to help you prioritize your daily tasks.",
-    image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=800&q=80",
-    etsyLink: "https://www.etsy.com/shop/CraftNW",
+    id: "nextmove-productivity-cards",
+    name: "NextMove Productivity Cards",
+    category: "Printables",
+    price: "Free",
+    description: "Printable productivity cards to help you plan your day, prioritize tasks, and stay focused on what matters most.",
+    image: [
+      "/images/products/nextmove/cards-1.jpg",
+      "/images/products/nextmove/cards-2.png",
+    ],
+    etsyLink: "/products/printables/nextmove-productivity-cards",
     featured: true,
   },
   {
