@@ -2,7 +2,14 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
+import ProductImageCarousel from "../../../components/ProductImageCarousel.astro";
 import { Download, ArrowRight } from "lucide-astro";
+
+// NextMove card images
+const cardImages = [
+  "/images/products/nextmove/hero/cards-1.jpg",
+  "/images/products/nextmove/hero/cards-2.jpg",
+];
 ---
 
 <BaseLayout
@@ -31,97 +38,106 @@ import { Download, ArrowRight } from "lucide-astro";
     </div>
   </section>
 
-  <!-- Product Description -->
+  <!-- Product Overview -->
   <section class="section-padding bg-craft-cream">
-    <div class="container-craft max-w-4xl">
-      <div class="bg-craft-white rounded-lg shadow-md" style="padding: 3rem;">
-        <h2 class="text-craft-black mb-6">About NextMove Cards</h2>
-        <div class="space-y-4 text-craft-charcoal text-lg leading-relaxed">
-          <p>
-            NextMove Productivity Cards are designed to help you cut through the noise and focus on your most important tasks. Each card provides a structured framework for planning, prioritizing, and executing your daily goals.
-          </p>
-          <p>
-            Whether you're managing multiple projects, trying to stay focused, or simply want a better way to organize your day, these printable cards give you a tangible, distraction-free way to plan your next move.
-          </p>
-          <p>
-            Print them out, fill them in, and keep them visible throughout your day. No apps, no notifications—just you and your priorities.
-          </p>
-        </div>
-
-        <div class="mt-8 p-6 bg-craft-cream rounded-lg">
-          <h3 class="text-craft-black mb-4">What's Included</h3>
-          <ul class="space-y-2 text-craft-charcoal">
-            <li class="flex items-start gap-2">
-              <span class="text-craft-red mt-1">•</span>
-              <span>Daily planning cards for organizing your top priorities</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-craft-red mt-1">•</span>
-              <span>Focus session cards for deep work blocks</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-craft-red mt-1">•</span>
-              <span>Weekly review cards for reflection and planning</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-craft-red mt-1">•</span>
-              <span>Print-ready PDF files optimized for standard paper sizes</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Download Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-        <div class="card overflow-hidden">
-          <div class="p-8">
-            <h3 class="text-craft-black mb-4">Daily Planning Cards</h3>
-            <p class="text-craft-charcoal text-base mb-6">
-              Start each day with clarity. Identify your top 3 priorities, schedule focused work blocks, and track your progress.
-            </p>
-            <a href="#" class="btn-primary inline-flex items-center gap-2">
-              <Download class="w-5 h-5" />
-              <span>Download PDF</span>
-            </a>
+    <div class="container-craft max-w-6xl">
+      <!-- Two Column Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Left Card: Image Carousel + About -->
+        <div class="bg-craft-white rounded-lg shadow-md overflow-hidden flex flex-col">
+          <!-- Image Carousel -->
+          <div>
+            <ProductImageCarousel images={cardImages} alt="NextMove Productivity Cards" />
+          </div>
+          
+          <!-- About Section -->
+          <div class="p-8 flex-1">
+            <h2 class="text-craft-black mb-6">About NextMove Cards</h2>
+            <div class="space-y-4 text-craft-charcoal text-lg leading-relaxed">
+              <p>
+                NextMove Productivity Cards are designed to help you cut through the noise and focus on your most important tasks. Each card provides a structured framework for planning, prioritizing, and executing your daily goals.
+              </p>
+              <p>
+                Whether you're managing multiple projects, trying to stay focused, or simply want a better way to organize your day, these printable cards give you a tangible, distraction-free way to plan your next move.
+              </p>
+              <p>
+                Print them out, fill them in, and keep them visible throughout your day. No apps, no notifications—just you and your priorities.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div class="card overflow-hidden">
+        <!-- Right Card: What's Included + Downloads -->
+        <div class="bg-craft-white rounded-lg shadow-md overflow-hidden flex flex-col">
+          <!-- What's Included Section -->
           <div class="p-8">
-            <h3 class="text-craft-black mb-4">Focus Session Cards</h3>
-            <p class="text-craft-charcoal text-base mb-6">
-              Maximize your deep work time. Set clear objectives, eliminate distractions, and track your focused hours.
-            </p>
-            <a href="#" class="btn-primary inline-flex items-center gap-2">
-              <Download class="w-5 h-5" />
-              <span>Download PDF</span>
-            </a>
-          </div>
-        </div>
+            <h2 class="text-craft-black mb-6">What's Included</h2>
+            <ul class="space-y-3 text-craft-charcoal text-lg mb-8">
+              <li class="flex items-center gap-3">
+                <span class="text-craft-red">•</span>
+                <span>Daily planning cards for organizing your top priorities</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="text-craft-red">•</span>
+                <span>Focus session cards for deep work blocks</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="text-craft-red">•</span>
+                <span>Weekly review cards for reflection and planning</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="text-craft-red">•</span>
+                <span>Print-ready PDF files optimized for standard paper sizes</span>
+              </li>
+            </ul>
 
-        <div class="card overflow-hidden">
-          <div class="p-8">
-            <h3 class="text-craft-black mb-4">Weekly Review Cards</h3>
-            <p class="text-craft-charcoal text-base mb-6">
-              Reflect on your week, celebrate wins, identify areas for improvement, and plan ahead with intention.
-            </p>
-            <a href="#" class="btn-primary inline-flex items-center gap-2">
-              <Download class="w-5 h-5" />
-              <span>Download PDF</span>
-            </a>
-          </div>
-        </div>
+            <!-- Download Buttons -->
+            <div class="space-y-4 mb-8">
+              <a href="/documents/nextmove/NextMove-Avery 5392.zip" download class="btn-primary w-full inline-flex items-center justify-center gap-2">
+                <Download class="w-5 h-5" />
+                <span>Avery 5392 3" x 4"</span>
+              </a>
+              <a href="/documents/nextmove/NextMove-Avery 28371.zip" download class="btn-primary w-full inline-flex items-center justify-center gap-2">
+                <Download class="w-5 h-5" />
+                <span>Avery 28371 Business Card</span>
+              </a>
+              <a href="/documents/nextmove/NextMove-Avery 88220.pdf" download class="btn-primary w-full inline-flex items-center justify-center gap-2">
+                <Download class="w-5 h-5" />
+                <span>Avery 88220 Round Business Card</span>
+              </a>
+              <a href="/documents/nextmove/NextMove-Bundle.zip" download class="btn-secondary w-full inline-flex items-center justify-center gap-2">
+                <Download class="w-5 h-5" />
+                <span>Download Complete Bundle</span>
+              </a>
+            </div>
 
-        <div class="card overflow-hidden">
-          <div class="p-8">
-            <h3 class="text-craft-black mb-4">Complete Bundle</h3>
-            <p class="text-craft-charcoal text-base mb-6">
-              Get all three card types in one convenient download. Everything you need to stay organized and productive.
-            </p>
-            <a href="#" class="btn-primary inline-flex items-center gap-2">
-              <Download class="w-5 h-5" />
-              <span>Download All</span>
-            </a>
+            <!-- Order Card Stock Buttons -->
+            <div class="border-t border-craft-warm-gray pt-6">
+              <h3 class="text-craft-black text-lg font-medium mb-4">Order Card Stock</h3>
+              <div class="space-y-3">
+                <a href="https://www.amazon.com/Avery-Badge-Inserts-Cardstock-Refills/dp/B06Y2FK9FK" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full inline-flex items-center justify-center gap-3 text-sm">
+                  <!-- 3x4 Card Icon -->
+                  <svg class="w-6 h-8" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="1" y="1" width="22" height="30" rx="2" />
+                  </svg>
+                  <span>Avery 5392 (3" x 4")</span>
+                </a>
+                <a href="https://www.amazon.com/Avery-Ink-Jet-Printer-Business-28371/dp/B00004Z5DG" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full inline-flex items-center justify-center gap-3 text-sm">
+                  <!-- Business Card Icon -->
+                  <svg class="w-8 h-5" viewBox="0 0 32 20" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="1" y="1" width="30" height="18" rx="1" />
+                  </svg>
+                  <span>Avery 28371 (Business Card)</span>
+                </a>
+                <a href="https://www.amazon.com/Avery-Two-Side-Printable-Business-88220/dp/B0058TXME4" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full inline-flex items-center justify-center gap-3 text-sm">
+                  <!-- Round Business Card Icon -->
+                  <svg class="w-8 h-5" viewBox="0 0 32 20" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="1" y="1" width="30" height="18" rx="4" />
+                  </svg>
+                  <span>Avery 88220 (Round Corners)</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
