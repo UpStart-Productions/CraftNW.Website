@@ -7,6 +7,8 @@ export const ORG_CONTACT = {
 export const ORG_SOCIALS = {
   instagram: "https://www.instagram.com/craft_nw/",
   etsy: "https://www.etsy.com/shop/CraftNW",
+  linkedin: "https://www.linkedin.com/in/chiefupstart/",
+  behance: "https://www.behance.net/chiefupstart",
   facebook: "",
   pinterest: "",
 };
