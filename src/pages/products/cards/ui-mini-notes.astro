@@ -3,6 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
 import ProductImageCarousel from "../../../components/ProductImageCarousel.astro";
+import { ORG_SOCIALS } from "../../../config/site";
 import { ArrowRight, ShoppingBag } from "lucide-astro";
 
 // All U&I Mini Notes images
@@ -104,7 +105,7 @@ const cardImages = [
                 Shop our U&I Mini Notes sets on Etsy. Available in various collections featuring different UI element designs.
               </p>
               <a 
-                href="https://www.etsy.com/shop/CraftNW" 
+                href={ORG_SOCIALS.etsy} 
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn-primary inline-flex items-center gap-2"

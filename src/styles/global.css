@@ -93,12 +93,13 @@
   }
 
   p a {
-    color: var(--craft-brown);
+    color: var(--craft-red);
     text-decoration: underline;
   }
 
   p a:hover {
     color: var(--craft-red);
+    opacity: 0.8;
   }
 
   /* Remove default margins */

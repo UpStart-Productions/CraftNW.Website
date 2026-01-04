@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { ORG_CONTACT, getEnabledSocials } from "../config/site";
+import { ORG_CONTACT, ORG_SOCIALS, getEnabledSocials } from "../config/site";
 import { Mail, Instagram, MapPin, ShoppingBag } from "lucide-astro";
 
 const socials = getEnabledSocials();
@@ -109,7 +109,7 @@ const socials = getEnabledSocials();
               <Mail class="w-6 h-6 text-craft-charcoal flex-shrink-0" />
               <a
                 href={`mailto:${ORG_CONTACT.email}`}
-                class="text-craft-brown hover:text-craft-red transition-colors text-lg"
+                class="text-craft-red hover:opacity-80 transition-colors text-lg"
               >
                 {ORG_CONTACT.email}
               </a>
@@ -119,10 +119,10 @@ const socials = getEnabledSocials();
             <div class="flex items-center gap-4">
               <ShoppingBag class="w-6 h-6 text-craft-charcoal flex-shrink-0" />
               <a
-                href="https://www.etsy.com/shop/CraftNWDesigns"
+                href={ORG_SOCIALS.etsy}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-craft-brown hover:text-craft-red transition-colors text-lg"
+                class="text-craft-red hover:opacity-80 transition-colors text-lg"
               >
                 Etsy Shop
               </a>
@@ -138,7 +138,7 @@ const socials = getEnabledSocials();
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="text-craft-brown hover:text-craft-red transition-colors text-lg"
+                      class="text-craft-red hover:opacity-80 transition-colors text-lg"
                     >
                       @craft_nw
                     </a>
@@ -155,7 +155,7 @@ const socials = getEnabledSocials();
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="text-craft-brown hover:text-craft-red transition-colors text-lg"
+                      class="text-craft-red hover:opacity-80 transition-colors text-lg"
                     >
                       Pinterest
                     </a>
@@ -172,7 +172,7 @@ const socials = getEnabledSocials();
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="text-craft-brown hover:text-craft-red transition-colors text-lg"
+                      class="text-craft-red hover:opacity-80 transition-colors text-lg"
                     >
                       chiefupstart
                     </a>
@@ -185,9 +185,14 @@ const socials = getEnabledSocials();
             <!-- Location -->
             <div class="flex items-center gap-4">
               <MapPin class="w-6 h-6 text-craft-charcoal flex-shrink-0" />
-              <p class="text-craft-charcoal text-lg">
+              <a
+                href="https://tastenewberg.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-craft-red hover:opacity-80 transition-colors text-lg"
+              >
                 {ORG_CONTACT.location}
-              </p>
+              </a>
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
 import ProductImageCarousel from "../../../components/ProductImageCarousel.astro";
+import { ORG_SOCIALS } from "../../../config/site";
 import { ArrowRight, ShoppingBag } from "lucide-astro";
 
 // All stump table hero images
@@ -103,7 +104,7 @@ const stumpImages = [
                 Browse our current selection of stump tables on Etsy. Each listing includes detailed photos showing the unique character of that specific piece.
               </p>
               <a 
-                href="https://www.etsy.com/shop/CraftNW" 
+                href={ORG_SOCIALS.etsy} 
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn-primary inline-flex items-center gap-2"

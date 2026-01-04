@@ -6,14 +6,10 @@ export const ORG_CONTACT = {
 
 export const ORG_SOCIALS = {
   instagram: "https://www.instagram.com/craft_nw/",
-  etsy: "https://www.etsy.com/shop/CraftNW",
+  etsy: "https://www.etsy.com/shop/CraftNWDesigns",
   behance: "https://www.behance.net/chiefupstart",
   pinterest: "https://www.pinterest.com/CraftNWDesigns/",
   facebook: "",
-};
-
-export const SHOP_LINKS = {
-  etsy: "https://www.etsy.com/shop/CraftNW",
 };
 
 export type SocialKey = keyof typeof ORG_SOCIALS;
