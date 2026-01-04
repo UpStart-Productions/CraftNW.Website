@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import ProductImageCarousel from "../../../components/ProductImageCarousel.astro";
+import { ArrowRight, ShoppingBag } from "lucide-astro";
+
+// All U&I Mini Notes images
+const cardImages = [
+  "/images/products/ui-mini-notes/hero/card-1.jpg",
+  "/images/products/ui-mini-notes/hero/card-2.jpg",
+  "/images/products/ui-mini-notes/hero/card-3.jpg",
+  "/images/products/ui-mini-notes/hero/card-4.jpg",
+  "/images/products/ui-mini-notes/hero/card-5.jpg",
+];
+---
+
+<BaseLayout
+  title="U&I Mini Notes - CraftNW"
+  description="Unique mini gift note cards styled like user interface elements. Perfect for designers, developers, and tech enthusiasts."
+>
+  <Header />
+  
+  <!-- Add padding for fixed header -->
+  <div class="pt-32 md:pt-36"></div>
+
+  <!-- Page Header -->
+  <section class="bg-craft-tan py-16">
+    <div class="container-craft text-center">
+      <img
+        src="/images/products/ui-mini-notes/logo-ui-mini-notes.svg"
+        alt="U&I Mini Notes Logo"
+        class="w-full max-w-[200px] mx-auto mb-8"
+      />
+      <h1 class="text-craft-black mb-4">
+        U&I Mini Notes
+      </h1>
+      <p class="text-craft-charcoal text-xl max-w-2xl mx-auto">
+        Delightful mini gift cards styled like user interface elements
+      </p>
+    </div>
+  </section>
+
+  <!-- Product Showcase -->
+  <section class="section-padding bg-craft-cream">
+    <div class="container-craft">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <!-- Image Carousel -->
+        <div class="sticky top-32">
+          <div class="bg-craft-white rounded-lg shadow-lg overflow-hidden">
+            <ProductImageCarousel images={cardImages} alt="U&I Mini Notes" />
+          </div>
+        </div>
+
+        <!-- Product Details -->
+        <div>
+          <div class="bg-craft-white rounded-lg shadow-md p-8 md:p-10">
+            <h2 class="text-craft-black mb-6">About U&I Mini Notes</h2>
+            <div class="space-y-4 text-craft-charcoal text-lg leading-relaxed">
+              <p>
+                U&I Mini Notes are charming little gift cards that bring a playful twist to your messages. Each card is designed to look like familiar user interface elements—modals, toggles, radio buttons, checkboxes, and more.
+              </p>
+              <p>
+                Perfect for designers, developers, tech enthusiasts, or anyone who appreciates clever design, these mini notes add a unique touch to gifts, thank you messages, or just brightening someone's day.
+              </p>
+              <p>
+                The compact size makes them ideal for tucking into gifts, attaching to flowers, or leaving as surprise notes. Each card features clean, modern UI-inspired designs that are both functional and delightful.
+              </p>
+            </div>
+
+            <div class="mt-8 p-6 bg-craft-cream rounded-lg">
+              <h3 class="text-craft-black mb-4">Features</h3>
+              <ul class="space-y-2 text-craft-charcoal">
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Unique designs styled like UI elements (modals, toggles, radio buttons, etc.)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Compact mini size perfect for gift tags or small notes</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Quality cardstock with professional printing</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Perfect for designers, developers, and tech lovers</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Great for gifts, thank you notes, or everyday messages</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Sets available with variety of UI designs</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8 p-6 bg-craft-tan rounded-lg border-2 border-craft-brown">
+              <h3 class="text-craft-black mb-3">Available on Etsy</h3>
+              <p class="text-craft-charcoal mb-4">
+                Shop our U&I Mini Notes sets on Etsy. Available in various collections featuring different UI element designs.
+              </p>
+              <a 
+                href="https://www.etsy.com/shop/CraftNW" 
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary inline-flex items-center gap-2"
+              >
+                <ShoppingBag class="w-5 h-5" />
+                <span>Shop on Etsy</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Use Cases -->
+          <div class="mt-8 bg-craft-white rounded-lg shadow-md p-8 md:p-10">
+            <h2 class="text-craft-black mb-4">Perfect For</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-craft-charcoal">
+              <div class="flex items-start gap-2">
+                <span class="text-craft-red mt-1">✓</span>
+                <span>Gift tags for tech-savvy friends</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-craft-red mt-1">✓</span>
+                <span>Thank you notes for coworkers</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-craft-red mt-1">✓</span>
+                <span>Lunchbox or desk surprises</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-craft-red mt-1">✓</span>
+                <span>Attaching to flowers or gifts</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-craft-red mt-1">✓</span>
+                <span>Office appreciation notes</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-craft-red mt-1">✓</span>
+                <span>Developer team celebrations</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Custom Orders -->
+          <div class="mt-8 bg-craft-white rounded-lg shadow-md p-8 md:p-10">
+            <h2 class="text-craft-black mb-4">Custom Designs</h2>
+            <p class="text-craft-charcoal text-lg mb-6">
+              Interested in custom UI-themed cards for your team or event? We can create personalized designs featuring your favorite UI elements or specific design systems. Contact us to discuss your ideas!
+            </p>
+            <a href="/contact" class="btn-secondary inline-flex items-center gap-2">
+              <span>Request Custom Design</span>
+              <ArrowRight class="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-12 text-center">
+        <a href="/products" class="btn-secondary inline-flex items-center gap-2">
+          <span>Browse All Products</span>
+          <ArrowRight class="w-5 h-5" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+

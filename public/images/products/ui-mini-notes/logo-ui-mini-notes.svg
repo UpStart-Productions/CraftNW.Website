@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="141px" height="77px" viewBox="0 0 141 77" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Text</title>
+    <g id="Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-443, -159)" id="Logo-1">
+            <g transform="translate(443, 159)" id="Text">
+                <text id="&amp;" font-family="SuiGenerisRg-Regular, Sui Generis" font-size="30" font-weight="normal" fill="#C2C3C5">
+                    <tspan x="88" y="59">&amp;</tspan>
+                </text>
+                <g id="UI" transform="translate(0, 23)" fill="#2D79EB" fill-rule="nonzero">
+                    <path d="M100.1,0 L61.5,0 L61.5,2.4 L79.7,2.4 L79.4,27.9 C79.3,43.1 67.5,50.7 50.1,50.7 C32.6,50.7 20.8,43.1 20.7,27.7 L20.5,2.4 L38.6,2.4 L38.6,0 L0,0 L0,2.4 L18.2,2.4 L18.2,26.6 C18.2,44.1 30.9,53.1 50.1,53.1 C69.4,53.1 81.9,44.1 81.9,26.6 L81.9,2.4 L100.1,2.4 L100.1,0 Z" id="Path"></path>
+                    <polygon id="Path" points="138.766667 2.4 138.766667 0 99.8666667 0 99.8666667 2.4 118.166667 2.4 118.166667 49.7 99.8666667 49.7 99.8666667 52 138.766667 52 138.766667 49.7 120.666667 49.7 120.666667 2.4"></polygon>
+                </g>
+                <text id="mini-notes" font-family="SFProDisplay-Light, SF Pro Display" font-size="20" font-weight="300" line-spacing="23" letter-spacing="-0.4" fill="#FF0000">
+                    <tspan x="61" y="19">mini notes</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

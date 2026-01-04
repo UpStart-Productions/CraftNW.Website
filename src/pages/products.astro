@@ -16,6 +16,10 @@ const products = [
       "/images/products/lamps/hero/lamp-2.jpg",
       "/images/products/lamps/hero/lamp-3.jpg",
       "/images/products/lamps/hero/lamp-4.jpg",
+      "/images/products/lamps/hero/lamp-5.jpg",
+      "/images/products/lamps/hero/lamp-6.jpg",
+      "/images/products/lamps/hero/lamp-7.jpg",
+      "/images/products/lamps/hero/lamp-8.jpg",
     ],
     link: "/products/woodworking/lamps",
     category: "Woodworking",
@@ -29,6 +33,11 @@ const products = [
       "/images/products/stump-tables/hero/stump-2.jpg",
       "/images/products/stump-tables/hero/stump-3.jpg",
       "/images/products/stump-tables/hero/stump-4.jpg",
+      "/images/products/stump-tables/hero/stump-5.jpg",
+      "/images/products/stump-tables/hero/stump-6.jpg",
+      "/images/products/stump-tables/hero/stump-7.jpg",
+      "/images/products/stump-tables/hero/stump-8.jpg",
+      "/images/products/stump-tables/hero/stump-9.jpg",
     ],
     link: "/products/woodworking/stump-tables",
     category: "Woodworking",
@@ -42,9 +51,15 @@ const products = [
       "/images/products/tipsy-trails/hero/tt-2.jpg",
       "/images/products/tipsy-trails/hero/tt-3.jpg",
       "/images/products/tipsy-trails/hero/tt-4.jpg",
+      "/images/products/tipsy-trails/hero/tt-5.jpg",
+      "/images/products/tipsy-trails/hero/tt-6.jpg",
+      "/images/products/tipsy-trails/hero/tt-7.jpg",
+      "/images/products/tipsy-trails/hero/tt-8.jpg",
+      "/images/products/tipsy-trails/hero/tt-9.jpg",
     ],
     link: "/products/games/tipsy-trails",
     category: "Games",
+    logo: "/images/products/tipsy-trails/logo-tipsy-trails.svg",
   },
   {
     id: "nextmove-cards",
@@ -53,11 +68,25 @@ const products = [
     images: [
       "/images/products/nextmove/hero/cards-1.jpg",
       "/images/products/nextmove/hero/cards-2.jpg",
-      "/images/products/nextmove/hero/cards-1.jpg",
-      "/images/products/nextmove/hero/cards-2.jpg",
     ],
     link: "/products/printables/nextmove-productivity-cards",
     category: "Printables",
+    logo: "/images/products/nextmove/logo-nextmove.svg",
+  },
+  {
+    id: "ui-mini-notes",
+    name: "U&I Mini Notes",
+    description: "Delightful mini gift cards styled like user interface elements—modals, toggles, radio buttons, and more. Perfect for designers and tech enthusiasts.",
+    images: [
+      "/images/products/ui-mini-notes/hero/card-1.jpg",
+      "/images/products/ui-mini-notes/hero/card-2.jpg",
+      "/images/products/ui-mini-notes/hero/card-3.jpg",
+      "/images/products/ui-mini-notes/hero/card-4.jpg",
+      "/images/products/ui-mini-notes/hero/card-5.jpg",
+    ],
+    link: "/products/cards/ui-mini-notes",
+    category: "Cards",
+    logo: "/images/products/ui-mini-notes/logo-ui-mini-notes.svg",
   },
 ];
 ---
@@ -97,6 +126,14 @@ const products = [
 
               <!-- Product Info -->
               <div class={`p-8 md:p-12 flex flex-col justify-center ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
+                {product.logo && (
+                  <img
+                    src={product.logo}
+                    alt={`${product.name} Logo`}
+                    class="w-full max-w-[200px] mb-6"
+                  />
+                )}
+                
                 <div class="inline-block mb-4">
                   <span class="text-xs font-medium uppercase tracking-wider text-craft-red bg-craft-tan px-3 py-1 rounded-full">
                     {product.category}
