@@ -7,10 +7,9 @@ export const ORG_CONTACT = {
 export const ORG_SOCIALS = {
   instagram: "https://www.instagram.com/craft_nw/",
   etsy: "https://www.etsy.com/shop/CraftNW",
-  linkedin: "https://www.linkedin.com/in/chiefupstart/",
   behance: "https://www.behance.net/chiefupstart",
+  pinterest: "https://www.pinterest.com/CraftNWDesigns/",
   facebook: "",
-  pinterest: "",
 };
 
 export const SHOP_LINKS = {
