@@ -6,6 +6,7 @@ import ImageCarousel, { type CarouselSlide } from "../components/ImageCarousel.a
 import SectionHeader from "../components/SectionHeader.astro";
 import ProductCard from "../components/ProductCard.astro";
 import { getFeaturedProducts } from "../data/products";
+import { ORG_SOCIALS } from "../config/site";
 import { ArrowRight } from "lucide-astro";
 
 const featuredProducts = getFeaturedProducts();
@@ -111,16 +112,50 @@ const heroSlides: CarouselSlide[] = [
       />
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        {featuredProducts.map((product) => (
-          <ProductCard
-            name={product.name}
-            price={product.price}
-            image={product.image}
-            category={product.category}
-            link={product.etsyLink}
-            featured={product.featured}
-          />
-        ))}
+        {featuredProducts.map((product) => {
+          // For NextMove, it has an internal product page
+          if (product.id === "nextmove-productivity-cards") {
+            return (
+              <ProductCard
+                name={product.name}
+                price={product.price}
+                description={product.description}
+                image={product.image}
+                category={product.category}
+                link={product.etsyLink}
+                etsyLink={`${ORG_SOCIALS.etsy}?ref=shop_profile&listing_id=1712141764&section_id=56863130`}
+                featured={product.featured}
+              />
+            );
+          }
+          // For U&I Mini Notes, show coming soon banner and disable Etsy button
+          if (product.id === "ui-mini-notes") {
+            return (
+              <ProductCard
+                name={product.name}
+                price={product.price}
+                description={product.description}
+                image={product.image}
+                category={product.category}
+                link={product.etsyLink}
+                featured={product.featured}
+                comingSoon={true}
+              />
+            );
+          }
+          // For other products, they only have Etsy links
+          return (
+            <ProductCard
+              name={product.name}
+              price={product.price}
+              description={product.description}
+              image={product.image}
+              category={product.category}
+              link={product.etsyLink}
+              featured={product.featured}
+            />
+          );
+        })}
       </div>
 
       <div class="text-center">

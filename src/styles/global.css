@@ -236,5 +236,109 @@
       padding: 0 2rem;
     }
   }
+
+  /* Navigation Link Styles */
+  .nav-link {
+    position: relative;
+    padding-bottom: 4px;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--craft-red);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .nav-link.active {
+    color: var(--craft-red);
+  }
+
+  /* Image Carousel Styles */
+  .carousel-slide {
+    transition: opacity var(--fade-duration) ease-in-out;
+    will-change: opacity;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .carousel-slide.fading-out {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  /* Background zooms, but not the text */
+  .carousel-slide-bg {
+    animation: kenBurnsZoom var(--zoom-duration) ease-out forwards;
+    will-change: transform;
+  }
+
+  /* Text transitions - static, no zoom */
+  .carousel-text {
+    transition: opacity var(--fade-duration) ease-in-out;
+    will-change: opacity;
+  }
+
+  .carousel-text.active {
+    opacity: 1;
+    z-index: 10;
+  }
+
+  .carousel-text.fading-out {
+    opacity: 0;
+  }
+
+  @keyframes kenBurnsZoom {
+    from {
+      transform: scale(1.15);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  /* Product Image Carousel Styles */
+  .product-carousel-dot {
+    cursor: pointer;
+  }
+
+  /* Coming Soon Banner */
+  .coming-soon-banner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    background-color: #FFC107;
+    padding: 10px 50px 12px 50px;
+    transform: rotate(45deg);
+    transform-origin: center;
+    margin-top: 30px;
+    margin-right: -45px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .coming-soon-banner span {
+    display: block;
+    white-space: nowrap;
+    color: #1A1A1A;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.2;
+  }
 }
 

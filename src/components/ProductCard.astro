@@ -1,58 +1,76 @@
 ---
-import { ExternalLink } from "lucide-astro";
+import { ShoppingBag } from "lucide-astro";
 import ProductImageCarousel from "./ProductImageCarousel.astro";
 
 interface Props {
   name: string;
   price: string;
+  description?: string; // Optional description to show instead of price
   image: string | string[]; // Can be single image or array of images
   category: string;
   link: string;
+  etsyLink?: string; // Optional Etsy link for "Buy on Etsy" button
   featured?: boolean;
+  comingSoon?: boolean; // Show "Coming soon" banner
 }
 
-const { name, price, image, category, link, featured = false } = Astro.props;
-
-// Check if link is external (starts with http) or internal
-const isExternal = link.startsWith('http');
-const linkTarget = isExternal ? '_blank' : undefined;
-const linkRel = isExternal ? 'noopener noreferrer' : undefined;
+const { name, price, description, image, category, link, etsyLink, featured = false, comingSoon = false } = Astro.props;
 
 // Convert single image to array for consistency
 const images = Array.isArray(image) ? image : [image];
 ---
 
 <article class="card overflow-hidden group">
-  <a href={link} target={linkTarget} rel={linkRel} class="block">
-    <!-- Product Image(s) -->
-    <div class="relative">
-      <ProductImageCarousel images={images} alt={name} />
-      {featured && (
-        <div class="absolute top-4 right-4 bg-craft-red text-craft-white px-3 py-1 text-sm font-medium rounded z-20">
-          Featured
-        </div>
-      )}
-    </div>
-
-    <!-- Product Info -->
-    <div class="p-6">
-      <div class="flex items-start justify-between gap-4 mb-2">
-        <h3 class="text-xl font-medium text-craft-black group-hover:text-craft-red transition-colors">
-          {name}
-        </h3>
-        {isExternal && (
-          <ExternalLink class="w-5 h-5 text-craft-charcoal flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
-        )}
+  <!-- Product Image(s) -->
+  <div class="relative overflow-hidden">
+    <ProductImageCarousel images={images} alt={name} />
+    {comingSoon && (
+      <div class="coming-soon-banner">
+        <span class="text-white text-sm font-medium">Coming soon</span>
       </div>
-      
-      <p class="text-sm text-craft-brown uppercase tracking-wide mb-3">
-        {category}
+    )}
+  </div>
+
+  <!-- Product Info -->
+  <div class="p-6">
+    <h3 class="text-xl font-medium text-craft-black mb-2">
+      {name}
+    </h3>
+    
+    <p class="text-sm text-craft-brown uppercase tracking-wide mb-3">
+      {category}
+    </p>
+    
+    {description ? (
+      <p class="text-craft-charcoal mb-4 leading-relaxed">
+        {description}
       </p>
-      
-      <p class="text-2xl font-medium text-craft-black">
+    ) : (
+      <p class="text-2xl font-medium text-craft-black mb-4">
         {price}
       </p>
+    )}
+
+    <!-- Action Buttons -->
+    <div class="flex flex-col gap-2">
+      <a
+        href={link}
+        class="btn-primary w-full text-center inline-flex items-center justify-center gap-2"
+      >
+        <span>View Product</span>
+      </a>
+      {etsyLink && (
+        <a
+          href={etsyLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary w-full text-center inline-flex items-center justify-center gap-2"
+        >
+          <ShoppingBag class="w-4 h-4" />
+          <span>Buy on Etsy</span>
+        </a>
+      )}
     </div>
-  </a>
+  </div>
 </article>
 

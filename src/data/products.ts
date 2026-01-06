@@ -1,7 +1,7 @@
 export interface Product {
   id: string;
   name: string;
-  category: "Woodworking" | "Productivity Cards" | "Greeting Cards" | "Printables";
+  category: "Woodworking" | "Productivity Cards" | "Greeting Cards" | "Printables" | "Cards";
   price: string;
   description: string;
   image: string | string[]; // Can be single image or array of images
@@ -10,6 +10,39 @@ export interface Product {
 }
 
 export const products: Product[] = [
+  {
+    id: "nextmove-productivity-cards",
+    name: "NextMove Productivity Cards",
+    category: "Printables",
+    price: "",
+    description: "Simple, effective tools to organize your day and focus on what matters. Download and print your own productivity system.",
+    image: [
+      "/images/products/nextmove/hero/cards-1.jpg",
+      "/images/products/nextmove/hero/cards-2.jpg",
+      "/images/products/nextmove/28371-cards-1.jpg",
+      "/images/products/nextmove/28371-cards-3.jpg",
+      "/images/products/nextmove/28371-card-holder-2.jpg",
+      "/images/products/nextmove/88220-card-holder-2.jpg",
+    ],
+    etsyLink: "/products/printables/nextmove-productivity-cards",
+    featured: true,
+  },
+  {
+    id: "ui-mini-notes",
+    name: "U&I Mini Notes",
+    category: "Cards",
+    price: "",
+    description: "Delightful mini gift cards styled like user interface elements—modals, toggles, radio buttons, and more. Perfect for designers and tech enthusiasts.",
+    image: [
+      "/images/products/ui-mini-notes/hero/card-1.jpg",
+      "/images/products/ui-mini-notes/hero/card-2.jpg",
+      "/images/products/ui-mini-notes/hero/card-3.jpg",
+      "/images/products/ui-mini-notes/hero/card-4.jpg",
+      "/images/products/ui-mini-notes/hero/card-5.jpg",
+    ],
+    etsyLink: "/products/cards/ui-mini-notes",
+    featured: true,
+  },
   {
     id: "oak-desk-organizer",
     name: "Oak Desk Organizer",
@@ -32,19 +65,6 @@ export const products: Product[] = [
     description: "Elegant walnut phone stand with cable management groove.",
     image: "https://images.unsplash.com/photo-1565120130276-dfbd9a7a3ad7?w=800&q=80",
     etsyLink: "https://www.etsy.com/shop/CraftNW",
-    featured: true,
-  },
-  {
-    id: "nextmove-productivity-cards",
-    name: "NextMove Productivity Cards",
-    category: "Printables",
-    price: "Free",
-    description: "Printable productivity cards to help you plan your day, prioritize tasks, and stay focused on what matters most.",
-    image: [
-      "/images/products/nextmove/cards-1.jpg",
-      "/images/products/nextmove/cards-2.png",
-    ],
-    etsyLink: "/products/printables/nextmove-productivity-cards",
     featured: true,
   },
   {
