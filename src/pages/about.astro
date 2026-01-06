@@ -2,6 +2,15 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import ProductImageCarousel from "../components/ProductImageCarousel.astro";
+import { ORG_SOCIALS } from "../config/site";
+
+// About page images - add your images here
+const aboutImages = [
+  "/images/about/image-1.jpg",
+  "/images/about/image-2.jpg",
+  "/images/about/image-3.jpg",
+];
 ---
 
 <BaseLayout
@@ -28,30 +37,46 @@ import Footer from "../components/Footer.astro";
   <!-- Story Section -->
   <section class="py-8 md:py-16 bg-craft-white">
     <div class="max-w-7xl mx-auto px-3 md:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <!-- Image -->
-        <div>
-          <img
-            src="https://images.unsplash.com/photo-1416339442236-8ceb164046f8?w=800&q=80"
-            alt="Workshop tools"
-            class="rounded-lg shadow-lg w-full"
-          />
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <!-- Image Carousel -->
+        <div class="sticky top-32">
+          <div class="bg-craft-white rounded-lg shadow-lg overflow-hidden">
+            <ProductImageCarousel images={aboutImages} alt="About CraftNW" />
+          </div>
         </div>
 
         <!-- Content -->
         <div>
-          <h2 class="text-craft-black mb-6">
-            The Story
-          </h2>
-          <p class="text-craft-charcoal text-lg mb-6">
-            CraftNW began in a small workshop in Newberg, Oregon, where a passion for creating beautiful, functional objects came to life. What started as weekend projects and personal experiments has grown into a collection of handcrafted goods that blend traditional craftsmanship with modern design.
-          </p>
-          <p class="text-craft-charcoal text-lg mb-6">
-            Every piece tells a story. From carefully selected materials to the final finishing touches, each item is made with intention and care. Whether it's a woodworking project, a set of productivity cards, or a printable design, the goal is always the same: to create something that brings both beauty and utility to your everyday life.
-          </p>
-          <p class="text-craft-charcoal text-lg">
-            Based in the Pacific Northwest, CraftNW draws inspiration from the natural beauty and creative spirit of Oregon. Each piece is a reflection of that environment—thoughtful, enduring, and made to last.
-          </p>
+          <div class="flex flex-col sm:flex-row items-center sm:items-center gap-6 mb-6">
+            <img
+              src="/images/branding/jeff-headshot-2.png"
+              alt="Jeff"
+              class="w-[120px] h-[120px] rounded-full border-4 border-white shadow-[0_4px_12px_rgba(0,0,0,0.3)] object-cover flex-shrink-0"
+            />
+            <h2 class="text-craft-black text-center sm:text-left flex items-center m-0">
+              I'm Jeff, and I like to make things.
+            </h2>
+          </div>
+          <div class="space-y-6 text-craft-charcoal text-lg leading-relaxed">
+            <p>
+              Ever since I was a kid growing up in Redding CA I've been putting things together or taking things apart. LEGO, Erector sets, little electronic kits. One of my earliest building memories is my dad buying me a bag of concrete when I was five. I even faked being sick one day in kindergarten so I could go home early and make something with it. Pretty weird, right?
+            </p>
+            <p>
+              In the 80s, I got my hands on early home computers like the Timex Sinclair, the Commodore 64, and an early PC. I discovered I liked writing my own little games more than playing them.
+            </p>
+            <p>
+              In the late 80s, I got a job as a cabinetmaker and learned I could do some pretty cool stuff with wood. I did that for about ten years. When the internet showed up in the mid 90s, my love of programming came back through web design. In late 2000, I switched gears and started my own web design agency.
+            </p>
+            <p>
+              Since then, I've had a mix of software development jobs, including 15 years at <a href="https://wou.edu/tri/" target="_blank" rel="noopener noreferrer" class="text-craft-red hover:opacity-80">Western Oregon University's Research Institute</a>. I still run my agency, <a href="https://upstartproductions.com" target="_blank" rel="noopener noreferrer" class="text-craft-red hover:opacity-80">UpStart Productions</a>, where I help nonprofits untangle tech problems and build tools that make their work easier.
+            </p>
+            <p>
+              Craft NW is my little corner of the internet to share whatever thing has captured my attention at the moment. That might be <a href="/products/woodworking/lamps" class="text-craft-red hover:opacity-80">wood lamps</a>, <a href="/products/games/tipsy-trails" class="text-craft-red hover:opacity-80">drinking games</a>, which is funny because I quit drinking, <a href="/products/printables/nextmove-productivity-cards" class="text-craft-red hover:opacity-80">productivity cards</a>, <a href="/products/cards/ui-mini-notes" class="text-craft-red hover:opacity-80">little notes</a>, or anything else that sounds fun to make. Some of it ends up in my <a href={ORG_SOCIALS.etsy} target="_blank" rel="noopener noreferrer" class="text-craft-red hover:opacity-80">Etsy shop</a>, just to see if anyone else likes it as much as I do.
+            </p>
+            <p>
+              Thanks for stopping by. <a href="/contact" class="text-craft-red hover:opacity-80">Drop me a note</a>, or <a href="/contact" class="text-craft-red hover:opacity-80">follow me on the socials</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
