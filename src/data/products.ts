@@ -1,7 +1,7 @@
 export interface Product {
   id: string;
   name: string;
-  category: "Woodworking" | "Productivity Cards" | "Greeting Cards" | "Printables" | "Cards";
+  category: "Woodworking" | "Productivity Cards" | "Greeting Cards" | "Printables" | "Cards" | "Games";
   price: string;
   description: string;
   image: string | string[]; // Can be single image or array of images
@@ -17,7 +17,6 @@ export const products: Product[] = [
     price: "",
     description: "Simple, effective tools to organize your day and focus on what matters. Download and print your own productivity system.",
     image: [
-      "/images/products/nextmove/hero/cards-1.jpg",
       "/images/products/nextmove/hero/cards-2.jpg",
       "/images/products/nextmove/28371-cards-1.jpg",
       "/images/products/nextmove/28371-cards-3.jpg",
@@ -44,55 +43,24 @@ export const products: Product[] = [
     featured: true,
   },
   {
-    id: "oak-desk-organizer",
-    name: "Oak Desk Organizer",
-    category: "Woodworking",
-    price: "$65",
-    description: "Handcrafted oak desk organizer with multiple compartments for pens, cards, and small items.",
+    id: "tipsy-trails",
+    name: "Tipsy Trails",
+    category: "Games",
+    price: "",
+    description: "The ultimate drinking game for unforgettable nights with friends. Navigate the board, draw cards, and create memories that will last a lifetime.",
     image: [
-      "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80",
-      "https://images.unsplash.com/photo-1565120130276-dfbd9a7a3ad7?w=800&q=80",
-      "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?w=800&q=80",
+      "/images/products/tipsy-trails/hero/tt-1.jpg",
+      "/images/products/tipsy-trails/hero/tt-2.jpg",
+      "/images/products/tipsy-trails/hero/tt-3.jpg",
+      "/images/products/tipsy-trails/hero/tt-4.jpg",
+      "/images/products/tipsy-trails/hero/tt-5.jpg",
+      "/images/products/tipsy-trails/hero/tt-6.jpg",
+      "/images/products/tipsy-trails/hero/tt-7.jpg",
+      "/images/products/tipsy-trails/hero/tt-8.jpg",
+      "/images/products/tipsy-trails/hero/tt-9.jpg",
     ],
-    etsyLink: "https://www.etsy.com/shop/CraftNW",
+    etsyLink: "https://www.etsy.com/shop/CraftNWDesigns/edit?ref=edit_trust_header&section_id=48930512",
     featured: true,
-  },
-  {
-    id: "walnut-phone-stand",
-    name: "Walnut Phone Stand",
-    category: "Woodworking",
-    price: "$35",
-    description: "Elegant walnut phone stand with cable management groove.",
-    image: "https://images.unsplash.com/photo-1565120130276-dfbd9a7a3ad7?w=800&q=80",
-    etsyLink: "https://www.etsy.com/shop/CraftNW",
-    featured: true,
-  },
-  {
-    id: "maple-cutting-board",
-    name: "Maple Cutting Board",
-    category: "Woodworking",
-    price: "$55",
-    description: "Beautiful edge-grain maple cutting board, food-safe finish.",
-    image: "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?w=800&q=80",
-    etsyLink: "https://www.etsy.com/shop/CraftNW",
-  },
-  {
-    id: "mini-greeting-cards",
-    name: "Mini Greeting Card Set",
-    category: "Greeting Cards",
-    price: "$18",
-    description: "Set of 12 mini greeting cards with Pacific Northwest themes.",
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80",
-    etsyLink: "https://www.etsy.com/shop/CraftNW",
-  },
-  {
-    id: "weekly-planner-printable",
-    name: "Weekly Planner Printable",
-    category: "Printables",
-    price: "$8",
-    description: "Minimalist weekly planner template, instant download.",
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-    etsyLink: "https://www.etsy.com/shop/CraftNW",
   },
 ];
 

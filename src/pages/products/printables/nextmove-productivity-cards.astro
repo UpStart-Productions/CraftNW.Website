@@ -3,11 +3,11 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
 import ProductImageCarousel from "../../../components/ProductImageCarousel.astro";
-import { Download, ArrowRight } from "lucide-astro";
+import { Download, ArrowRight, ShoppingBag } from "lucide-astro";
+import { ORG_SOCIALS } from "../../../config/site";
 
 // NextMove card images
 const cardImages = [
-  "/images/products/nextmove/hero/cards-1.jpg",
   "/images/products/nextmove/hero/cards-2.jpg",
   "/images/products/nextmove/28371-cards-1.jpg",
   "/images/products/nextmove/28371-cards-3.jpg",
@@ -26,36 +26,42 @@ const cardImages = [
   <div class="pt-32 md:pt-36"></div>
 
   <!-- Page Header -->
-  <section class="bg-craft-tan py-16">
-    <div class="container-craft text-center">
+  <section 
+    class="relative py-16 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/images/products/nextmove/hero/cards-3.jpg');"
+  >
+    <!-- Overlay for text readability -->
+    <div class="absolute inset-0 bg-craft-black/20"></div>
+    
+    <div class="container-craft text-center relative z-10">
       <img
         src="/images/products/nextmove/logo-nextmove.svg"
         alt="NextMove Logo"
         class="w-full max-w-[200px] mx-auto mb-8"
       />
-      <h1 class="text-craft-black mb-4">
+      <h1 class="text-craft-white mb-4" style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);">
         NextMove Productivity Cards
       </h1>
-      <p class="text-craft-charcoal text-xl max-w-2xl mx-auto">
+      <p class="text-craft-white text-xl max-w-2xl mx-auto" style="text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);">
         Simple, effective tools to organize your day and focus on what matters
       </p>
     </div>
   </section>
 
-  <!-- Product Overview -->
+  <!-- Product Showcase -->
   <section class="py-8 md:py-16 bg-craft-cream">
-    <div class="max-w-6xl mx-auto px-3 md:px-6 lg:px-8">
-      <!-- Two Column Layout -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
-        <!-- Left Card: Image Carousel + About -->
-        <div class="bg-craft-white rounded-lg shadow-md overflow-hidden flex flex-col">
-          <!-- Image Carousel -->
-          <div>
+    <div class="max-w-7xl mx-auto px-3 md:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <!-- Image Carousel -->
+        <div class="sticky top-32">
+          <div class="bg-craft-white rounded-lg shadow-lg overflow-hidden">
             <ProductImageCarousel images={cardImages} alt="NextMove Productivity Cards" />
           </div>
-          
-          <!-- About Section -->
-          <div class="p-4 md:p-8 flex-1">
+        </div>
+
+        <!-- Product Details -->
+        <div>
+          <div class="bg-craft-white rounded-lg shadow-md p-8 md:p-10">
             <h2 class="text-craft-black mb-6">About NextMove Cards</h2>
             <div class="space-y-4 text-craft-charcoal text-lg leading-relaxed">
               <p>
@@ -68,111 +74,123 @@ const cardImages = [
                 Print them out, fill them in, and keep them visible throughout your day. No apps, no notifications—just you and your priorities.
               </p>
             </div>
-          </div>
-        </div>
 
-        <!-- Right Card: What's Included + Downloads -->
-        <div class="bg-craft-white rounded-lg shadow-md overflow-hidden flex flex-col">
-          <!-- What's Included Section -->
-          <div class="p-4 md:p-8">
-            <h2 class="text-craft-black mb-6">What's Included</h2>
-            <ul class="space-y-3 text-craft-charcoal text-lg mb-8">
-              <li class="flex items-center gap-3">
-                <span class="text-craft-red">•</span>
-                <span>Daily planning cards for organizing your top priorities</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <span class="text-craft-red">•</span>
-                <span>Focus session cards for deep work blocks</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <span class="text-craft-red">•</span>
-                <span>Weekly review cards for reflection and planning</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <span class="text-craft-red">•</span>
-                <span>Print-ready PDF files optimized for standard paper sizes</span>
-              </li>
-            </ul>
-
-            <!-- Download Buttons -->
-            <div class="space-y-4 mb-8">
-              <a href="/documents/nextmove/NextMove-Avery 5392.zip" download class="btn-primary w-full inline-flex items-center justify-center gap-2">
-                <Download class="w-5 h-5" />
-                <span>Avery 5392 3" x 4"</span>
-              </a>
-              <a href="/documents/nextmove/NextMove-Avery 28371.zip" download class="btn-primary w-full inline-flex items-center justify-center gap-2">
-                <Download class="w-5 h-5" />
-                <span>Avery 28371 Business Card</span>
-              </a>
-              <a href="/documents/nextmove/NextMove-Avery 88220.pdf" download class="btn-primary w-full inline-flex items-center justify-center gap-2">
-                <Download class="w-5 h-5" />
-                <span>Avery 88220 Round Business Card</span>
-              </a>
-              <a href="/documents/nextmove/NextMove-Bundle.zip" download class="btn-secondary w-full inline-flex items-center justify-center gap-2">
-                <Download class="w-5 h-5" />
-                <span>Download Complete Bundle</span>
-              </a>
+            <div class="mt-8 p-6 bg-craft-cream rounded-lg">
+              <h3 class="text-craft-black mb-4">What's Included</h3>
+              <ul class="space-y-2 text-craft-charcoal">
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Daily planning cards for organizing your top priorities</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Focus session cards for deep work blocks</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Weekly review cards for reflection and planning</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-craft-red mt-1">•</span>
+                  <span>Print-ready PDF files optimized for standard paper sizes</span>
+                </li>
+              </ul>
             </div>
 
-            <!-- Order Card Stock Buttons -->
-            <div class="border-t border-craft-warm-gray pt-6">
-              <h3 class="text-craft-black text-lg font-medium mb-4">Order Card Stock</h3>
-              <div class="space-y-3">
-                <a href="https://www.amazon.com/Avery-Badge-Inserts-Cardstock-Refills/dp/B06Y2FK9FK" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full inline-flex items-center justify-center gap-3 text-sm">
-                  <!-- 3x4 Card Icon -->
-                  <svg class="w-6 h-8" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="1" y="1" width="22" height="30" rx="2" />
-                  </svg>
-                  <span>Avery 5392 (3" x 4")</span>
+            <!-- Download Buttons - Commented out
+            <div class="mt-8 p-6 bg-craft-tan rounded-lg border-2 border-craft-brown">
+              <h3 class="text-craft-black mb-4">Download Cards</h3>
+              <div class="space-y-3 mb-6">
+                <a href="/documents/nextmove/NextMove-Avery 5392.zip" download class="btn-primary w-full inline-flex items-center justify-center gap-2">
+                  <Download class="w-5 h-5" />
+                  <span>Avery 5392 3" x 4"</span>
                 </a>
-                <a href="https://www.amazon.com/Avery-Ink-Jet-Printer-Business-28371/dp/B00004Z5DG" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full inline-flex items-center justify-center gap-3 text-sm">
-                  <!-- Business Card Icon -->
-                  <svg class="w-8 h-5" viewBox="0 0 32 20" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="1" y="1" width="30" height="18" rx="1" />
-                  </svg>
-                  <span>Avery 28371 (Business Card)</span>
+                <a href="/documents/nextmove/NextMove-Avery 28371.zip" download class="btn-primary w-full inline-flex items-center justify-center gap-2">
+                  <Download class="w-5 h-5" />
+                  <span>Avery 28371 Business Card</span>
                 </a>
-                <a href="https://www.amazon.com/Avery-Two-Side-Printable-Business-88220/dp/B0058TXME4" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full inline-flex items-center justify-center gap-3 text-sm">
-                  <!-- Round Business Card Icon -->
-                  <svg class="w-8 h-5" viewBox="0 0 32 20" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="1" y="1" width="30" height="18" rx="4" />
-                  </svg>
-                  <span>Avery 88220 (Round Corners)</span>
+                <a href="/documents/nextmove/NextMove-Avery 88220.pdf" download class="btn-primary w-full inline-flex items-center justify-center gap-2">
+                  <Download class="w-5 h-5" />
+                  <span>Avery 88220 Round Business Card</span>
+                </a>
+                <a href="/documents/nextmove/NextMove-Bundle.zip" download class="btn-secondary w-full inline-flex items-center justify-center gap-2">
+                  <Download class="w-5 h-5" />
+                  <span>Download Complete Bundle</span>
                 </a>
               </div>
+              <div class="border-t border-craft-warm-gray pt-4 mt-4">
+                <h4 class="text-craft-black text-lg font-medium mb-3">Order Card Stock</h4>
+                <div class="space-y-2">
+                  <a href="https://www.amazon.com/Avery-Badge-Inserts-Cardstock-Refills/dp/B06Y2FK9FK" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full inline-flex items-center justify-center gap-3 text-sm">
+                    <svg class="w-6 h-8" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="1" y="1" width="22" height="30" rx="2" />
+                    </svg>
+                    <span>Avery 5392 (3" x 4")</span>
+                  </a>
+                  <a href="https://www.amazon.com/Avery-Ink-Jet-Printer-Business-28371/dp/B00004Z5DG" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full inline-flex items-center justify-center gap-3 text-sm">
+                    <svg class="w-8 h-5" viewBox="0 0 32 20" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="1" y="1" width="30" height="18" rx="1" />
+                    </svg>
+                    <span>Avery 28371 (Business Card)</span>
+                  </a>
+                  <a href="https://www.amazon.com/Avery-Two-Side-Printable-Business-88220/dp/B0058TXME4" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full inline-flex items-center justify-center gap-3 text-sm">
+                    <svg class="w-8 h-5" viewBox="0 0 32 20" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="1" y="1" width="30" height="18" rx="4" />
+                    </svg>
+                    <span>Avery 88220 (Round Corners)</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            -->
+
+            <!-- Available on Etsy -->
+            <div class="mt-8 p-6 bg-craft-tan rounded-lg border-2 border-craft-brown">
+              <h3 class="text-craft-black mb-3">Available on Etsy</h3>
+              <p class="text-craft-charcoal mb-4">
+                Shop our NextMove Productivity Cards on Etsy. Download and print your own productivity system.
+              </p>
+              <a 
+                href="https://www.etsy.com/shop/CraftNWDesigns?section_id=56863130"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary inline-flex items-center gap-2"
+              >
+                <ShoppingBag class="w-5 h-5" />
+                <span>Shop on Etsy</span>
+              </a>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- How to Use -->
-      <div class="mt-12 bg-craft-white rounded-lg shadow-md" style="padding: 3rem;">
-        <h2 class="text-craft-black mb-6">How to Use</h2>
-        <div class="space-y-6">
-          <div>
-            <h3 class="text-craft-black text-xl mb-2">1. Download & Print</h3>
-            <p class="text-craft-charcoal">
-              Download the PDF files and print them on standard letter or A4 paper. For best results, use heavier cardstock.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-craft-black text-xl mb-2">2. Fill In Your Cards</h3>
-            <p class="text-craft-charcoal">
-              Use a pen or pencil to fill in your priorities, tasks, and goals. The tactile act of writing helps cement your intentions.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-craft-black text-xl mb-2">3. Keep Them Visible</h3>
-            <p class="text-craft-charcoal">
-              Place your cards where you'll see them throughout the day—on your desk, by your computer, or in your planner.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-craft-black text-xl mb-2">4. Review & Adjust</h3>
-            <p class="text-craft-charcoal">
-              At the end of each day or week, review your cards, celebrate your progress, and plan your next move.
-            </p>
+          <!-- How to Use -->
+          <div class="mt-8 bg-craft-white rounded-lg shadow-md p-8 md:p-10">
+            <h2 class="text-craft-black mb-4">How to Use</h2>
+            <div class="space-y-4 text-craft-charcoal">
+              <div>
+                <h3 class="text-craft-black text-lg mb-2">1. Download & Print</h3>
+                <p>
+                  Download the PDF files and print them on standard letter or A4 paper. For best results, use heavier cardstock.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-craft-black text-lg mb-2">2. Fill In Your Cards</h3>
+                <p>
+                  Use a pen or pencil to fill in your priorities, tasks, and goals. The tactile act of writing helps cement your intentions.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-craft-black text-lg mb-2">3. Keep Them Visible</h3>
+                <p>
+                  Place your cards where you'll see them throughout the day—on your desk, by your computer, or in your planner.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-craft-black text-lg mb-2">4. Review & Adjust</h3>
+                <p>
+                  At the end of each day or week, review your cards, celebrate your progress, and plan your next move.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -180,7 +198,7 @@ const cardImages = [
       <!-- CTA -->
       <div class="mt-12 text-center">
         <a href="/products" class="btn-secondary inline-flex items-center gap-2">
-          <span>Browse More Products</span>
+          <span>Browse All Products</span>
           <ArrowRight class="w-5 h-5" />
         </a>
       </div>

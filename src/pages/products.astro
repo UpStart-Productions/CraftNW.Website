@@ -66,7 +66,6 @@ const products = [
     name: "NextMove Productivity Cards",
     description: "Free printable productivity cards to help you plan your day, prioritize tasks, and stay focused on what matters most. Download and print at home.",
     images: [
-      "/images/products/nextmove/hero/cards-1.jpg",
       "/images/products/nextmove/hero/cards-2.jpg",
       "/images/products/nextmove/28371-cards-1.jpg",
       "/images/products/nextmove/28371-cards-3.jpg",
@@ -125,7 +124,7 @@ const products = [
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
               <!-- Image Carousel -->
               <div class={`${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
-                <ProductImageCarousel images={product.images} />
+                <ProductImageCarousel images={product.images} alt={product.name} />
               </div>
 
               <!-- Product Info -->

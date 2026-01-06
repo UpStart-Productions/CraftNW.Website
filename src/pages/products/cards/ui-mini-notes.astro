@@ -26,17 +26,25 @@ const cardImages = [
   <div class="pt-32 md:pt-36"></div>
 
   <!-- Page Header -->
-  <section class="bg-craft-tan py-16">
-    <div class="container-craft text-center">
-      <img
-        src="/images/products/ui-mini-notes/logo-ui-mini-notes.svg"
-        alt="U&I Mini Notes Logo"
-        class="w-full max-w-[200px] mx-auto mb-8"
-      />
-      <h1 class="text-craft-black mb-4">
+  <section 
+    class="relative py-16 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/images/products/ui-mini-notes/hero/card-6.jpg');"
+  >
+    <!-- Overlay for text readability -->
+    <div class="absolute inset-0 bg-craft-black/20"></div>
+    
+    <div class="container-craft text-center relative z-10">
+      <div class="inline-block bg-craft-white rounded-lg px-6 py-4 mb-8 shadow-lg">
+        <img
+          src="/images/products/ui-mini-notes/logo-ui-mini-notes.svg"
+          alt="U&I Mini Notes Logo"
+          class="w-full max-w-[200px] mx-auto"
+        />
+      </div>
+      <h1 class="text-craft-white mb-4" style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);">
         U&I Mini Notes
       </h1>
-      <p class="text-craft-charcoal text-xl max-w-2xl mx-auto">
+      <p class="text-craft-white text-xl max-w-2xl mx-auto" style="text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);">
         Delightful mini gift cards styled like user interface elements
       </p>
     </div>
@@ -145,18 +153,6 @@ const cardImages = [
                 <span>Developer team celebrations</span>
               </div>
             </div>
-          </div>
-
-          <!-- Custom Orders -->
-          <div class="mt-8 bg-craft-white rounded-lg shadow-md p-8 md:p-10">
-            <h2 class="text-craft-black mb-4">Custom Designs</h2>
-            <p class="text-craft-charcoal text-lg mb-6">
-              Interested in custom UI-themed cards for your team or event? We can create personalized designs featuring your favorite UI elements or specific design systems. Contact us to discuss your ideas!
-            </p>
-            <a href="/contact" class="btn-secondary inline-flex items-center gap-2">
-              <span>Request Custom Design</span>
-              <ArrowRight class="w-5 h-5" />
-            </a>
           </div>
         </div>
       </div>

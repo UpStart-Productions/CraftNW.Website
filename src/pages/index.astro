@@ -143,6 +143,21 @@ const heroSlides: CarouselSlide[] = [
               />
             );
           }
+          // For Tipsy Trails, it has an internal product page and Etsy link
+          if (product.id === "tipsy-trails") {
+            return (
+              <ProductCard
+                name={product.name}
+                price={product.price}
+                description={product.description}
+                image={product.image}
+                category={product.category}
+                link="/products/games/tipsy-trails"
+                etsyLink={product.etsyLink}
+                featured={product.featured}
+              />
+            );
+          }
           // For other products, they only have Etsy links
           return (
             <ProductCard
