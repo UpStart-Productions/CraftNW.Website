@@ -5,11 +5,18 @@ import Footer from "../components/Footer.astro";
 import ProductImageCarousel from "../components/ProductImageCarousel.astro";
 import { ORG_SOCIALS } from "../config/site";
 
-// About page images - add your images here
+// About page images
 const aboutImages = [
-  "/images/about/image-1.jpg",
-  "/images/about/image-2.jpg",
-  "/images/about/image-3.jpg",
+  "/images/about/photo-1.jpg",
+  "/images/about/photo-2.jpg",
+  "/images/about/photo-3.jpg",
+  "/images/about/photo-4.jpg",
+  "/images/about/photo-5.jpg",
+  "/images/about/photo-6.jpg",
+  "/images/about/photo-7.jpg",
+  "/images/about/photo-8.jpg",
+  "/images/about/photo-9.jpg",
+  "/images/about/photo-10.jpg",
 ];
 ---
 
@@ -23,12 +30,18 @@ const aboutImages = [
   <div class="pt-32 md:pt-36"></div>
 
   <!-- Hero Section -->
-  <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-craft-tan">
-    <div class="container-craft text-center px-6 py-20">
-      <h1 class="text-craft-black mb-6">
+  <section 
+    class="relative py-16 flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/images/about/header-1.jpg');"
+  >
+    <!-- Overlay for text readability -->
+    <div class="absolute inset-0 bg-craft-black/20"></div>
+    
+    <div class="container-craft text-center px-6 py-20 relative z-10">
+      <h1 class="text-craft-white mb-6" style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);">
         About CraftNW
       </h1>
-      <p class="text-craft-charcoal text-xl md:text-2xl max-w-3xl mx-auto">
+      <p class="text-craft-white text-xl md:text-2xl max-w-3xl mx-auto" style="text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);">
         Where craftsmanship meets creativity in the heart of the Pacific Northwest
       </p>
     </div>

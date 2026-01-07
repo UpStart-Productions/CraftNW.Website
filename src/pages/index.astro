@@ -5,9 +5,24 @@ import Footer from "../components/Footer.astro";
 import ImageCarousel, { type CarouselSlide } from "../components/ImageCarousel.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import ProductCard from "../components/ProductCard.astro";
+import ProductImageCarousel from "../components/ProductImageCarousel.astro";
 import { getFeaturedProducts } from "../data/products";
 import { ORG_SOCIALS } from "../config/site";
 import { ArrowRight } from "lucide-astro";
+
+// About section carousel images
+const aboutCarouselImages = [
+  "/images/about/photo-1.jpg",
+  "/images/about/photo-2.jpg",
+  "/images/about/photo-3.jpg",
+  "/images/about/photo-4.jpg",
+  "/images/about/photo-5.jpg",
+  "/images/about/photo-6.jpg",
+  "/images/about/photo-7.jpg",
+  "/images/about/photo-8.jpg",
+  "/images/about/photo-9.jpg",
+  "/images/about/photo-10.jpg",
+];
 
 const featuredProducts = getFeaturedProducts();
 
@@ -128,7 +143,7 @@ const heroSlides: CarouselSlide[] = [
               />
             );
           }
-          // For U&I Mini Notes, show coming soon banner and disable Etsy button
+          // For U&I Mini Notes, it has an internal product page and Etsy link
           if (product.id === "ui-mini-notes") {
             return (
               <ProductCard
@@ -138,8 +153,8 @@ const heroSlides: CarouselSlide[] = [
                 image={product.image}
                 category={product.category}
                 link={product.etsyLink}
+                etsyLink="https://www.etsy.com/listing/4436908424/ui-mini-cards-ui-inspired-note-cards"
                 featured={product.featured}
-                comingSoon={true}
               />
             );
           }
@@ -186,26 +201,27 @@ const heroSlides: CarouselSlide[] = [
   <section class="py-8 md:py-16 bg-craft-white">
     <div class="max-w-7xl mx-auto px-3 md:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <!-- Image -->
+        <!-- Image Carousel -->
         <div class="order-2 lg:order-1">
-          <img
-            src="https://images.unsplash.com/photo-1416339442236-8ceb164046f8?w=800&q=80"
-            alt="Woodworking workshop tools"
-            class="rounded-lg shadow-lg w-full"
-          />
+          <div class="bg-craft-white rounded-lg shadow-lg overflow-hidden">
+            <ProductImageCarousel images={aboutCarouselImages} alt="CraftNW Workshop" />
+          </div>
         </div>
 
         <!-- Content -->
         <div class="order-1 lg:order-2">
           <h2 class="text-craft-black mb-6">
-            Crafted with Care in the Pacific Northwest
+            Crafted with care in the<br />Pacific Northwest
           </h2>
-          <p class="text-craft-charcoal text-lg mb-6">
-            Every piece is handmade in my workshop in Newberg, Oregon. From woodworking projects to productivity tools, I create items that blend function with thoughtful design.
-          </p>
-          <p class="text-craft-charcoal text-lg mb-8">
-            What started as a hobby has grown into a passion for creating beautiful, useful things that bring joy to everyday life.
-          </p>
+          <div class="space-y-6 text-craft-charcoal text-lg leading-relaxed mb-8">
+            <p>
+              I'm Jeff, a longtime maker based in Newberg, Oregon. 
+              I've been building things since I was a kid with wood, software, and electronics. Craft NW is where I share what I'm working on right now.
+            </p>
+            <p>
+              You'll find projects with a practical, playful vibe, like wood pieces, paper goods, and design experiments. Some items end up in my <a href={ORG_SOCIALS.etsy} target="_blank" rel="noopener noreferrer" class="text-craft-red hover:opacity-80">Etsy shop</a>. If something catches your eye, tap through to learn more about me and the story behind Craft NW.
+            </p>
+          </div>
           <a href="/about" class="btn-secondary inline-flex items-center gap-2">
             <span>Learn More About CraftNW</span>
             <ArrowRight class="w-5 h-5" />
