@@ -8,6 +8,36 @@ import ProductImageCarousel from "../components/ProductImageCarousel.astro";
 // Define the 4 main products with their hero images
 const products = [
   {
+    id: "nextmove-cards",
+    name: "NextMove Productivity Cards",
+    description: "Free printable productivity cards to help you plan your day, prioritize tasks, and stay focused on what matters most. Download and print at home.",
+    images: [
+      "/images/products/nextmove/hero/cards-2.jpg",
+      "/images/products/nextmove/28371-cards-1.jpg",
+      "/images/products/nextmove/28371-cards-3.jpg",
+      "/images/products/nextmove/28371-card-holder-2.jpg",
+      "/images/products/nextmove/88220-card-holder-2.jpg",
+    ],
+    link: "/products/printables/nextmove-productivity-cards",
+    category: "Printables",
+    logo: "/images/products/nextmove/logo-nextmove.svg",
+  },
+  {
+    id: "ui-mini-notes",
+    name: "U&I Mini Notes",
+    description: "Delightful mini gift cards styled like user interface elements—modals, toggles, radio buttons, and more. Perfect for designers and tech enthusiasts.",
+    images: [
+      "/images/products/ui-mini-notes/hero/card-1.jpg",
+      "/images/products/ui-mini-notes/hero/card-2.jpg",
+      "/images/products/ui-mini-notes/hero/card-3.jpg",
+      "/images/products/ui-mini-notes/hero/card-4.jpg",
+      "/images/products/ui-mini-notes/hero/card-5.jpg",
+    ],
+    link: "/products/cards/ui-mini-notes",
+    category: "Cards",
+    logo: "/images/products/ui-mini-notes/logo-ui-mini-notes.svg",
+  },
+  {
     id: "lamps",
     name: "Handcrafted Lamps",
     description: "Unique, one-of-a-kind lamps that bring warmth and character to any space. Each lamp is carefully crafted with attention to detail and quality.",
@@ -60,36 +90,6 @@ const products = [
     link: "/products/games/tipsy-trails",
     category: "Games",
     logo: "/images/products/tipsy-trails/logo-tipsy-trails.svg",
-  },
-  {
-    id: "nextmove-cards",
-    name: "NextMove Productivity Cards",
-    description: "Free printable productivity cards to help you plan your day, prioritize tasks, and stay focused on what matters most. Download and print at home.",
-    images: [
-      "/images/products/nextmove/hero/cards-2.jpg",
-      "/images/products/nextmove/28371-cards-1.jpg",
-      "/images/products/nextmove/28371-cards-3.jpg",
-      "/images/products/nextmove/28371-card-holder-2.jpg",
-      "/images/products/nextmove/88220-card-holder-2.jpg",
-    ],
-    link: "/products/printables/nextmove-productivity-cards",
-    category: "Printables",
-    logo: "/images/products/nextmove/logo-nextmove.svg",
-  },
-  {
-    id: "ui-mini-notes",
-    name: "U&I Mini Notes",
-    description: "Delightful mini gift cards styled like user interface elements—modals, toggles, radio buttons, and more. Perfect for designers and tech enthusiasts.",
-    images: [
-      "/images/products/ui-mini-notes/hero/card-1.jpg",
-      "/images/products/ui-mini-notes/hero/card-2.jpg",
-      "/images/products/ui-mini-notes/hero/card-3.jpg",
-      "/images/products/ui-mini-notes/hero/card-4.jpg",
-      "/images/products/ui-mini-notes/hero/card-5.jpg",
-    ],
-    link: "/products/cards/ui-mini-notes",
-    category: "Cards",
-    logo: "/images/products/ui-mini-notes/logo-ui-mini-notes.svg",
   },
 ];
 ---

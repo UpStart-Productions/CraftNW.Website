@@ -2,7 +2,21 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
+import ProductImageCarousel from "../../../components/ProductImageCarousel.astro";
 import { ArrowRight } from "lucide-astro";
+
+// All Tipsy Trails hero images
+const tipsyTrailsImages = [
+  "/images/products/tipsy-trails/hero/tt-1.jpg",
+  "/images/products/tipsy-trails/hero/tt-2.jpg",
+  "/images/products/tipsy-trails/hero/tt-3.jpg",
+  "/images/products/tipsy-trails/hero/tt-4.jpg",
+  "/images/products/tipsy-trails/hero/tt-5.jpg",
+  "/images/products/tipsy-trails/hero/tt-6.jpg",
+  "/images/products/tipsy-trails/hero/tt-7.jpg",
+  "/images/products/tipsy-trails/hero/tt-8.jpg",
+  "/images/products/tipsy-trails/hero/tt-9.jpg",
+];
 ---
 
 <BaseLayout
@@ -14,68 +28,93 @@ import { ArrowRight } from "lucide-astro";
   <!-- Add padding for fixed header -->
   <div class="pt-32 md:pt-36"></div>
 
-  <!-- Page Header with Logo -->
-  <section class="bg-craft-tan py-16">
-    <div class="container-craft text-center">
+  <!-- Page Header -->
+  <section 
+    class="relative py-16 bg-cover bg-center bg-no-repeat flex items-center min-h-[400px]"
+    style="background-image: url('/images/products/tipsy-trails/hero/tt-3.jpg');"
+  >
+    <!-- Overlay for text readability -->
+    <div class="absolute inset-0 bg-craft-black/20"></div>
+    
+    <div class="container-craft text-center relative z-10 w-full">
       <img
         src="/images/products/tipsy-trails/logo-tipsy-trails.svg"
         alt="Tipsy Trails Logo"
-        class="w-full max-w-xl mx-auto mb-8"
+        class="w-full max-w-[200px] mx-auto mb-8"
       />
-      <h1 class="text-craft-black mb-4">
+      <h1 class="text-craft-white mb-4" style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);">
         Tipsy Trails
       </h1>
-      <p class="text-craft-charcoal text-xl max-w-2xl mx-auto">
+      <p class="text-craft-white text-xl max-w-2xl mx-auto" style="text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);">
         A drinking game adventure for adults
       </p>
     </div>
   </section>
 
-  <!-- Game Description -->
+  <!-- Product Showcase -->
   <section class="py-8 md:py-16 bg-craft-cream">
-    <div class="max-w-4xl mx-auto px-3 md:px-6 lg:px-8">
-      <div class="bg-craft-white rounded-lg shadow-md" style="padding: 3rem;">
-        <h2 class="text-craft-black mb-6">About Tipsy Trails</h2>
-        <div class="space-y-4 text-craft-charcoal text-lg leading-relaxed">
-          <p>
-            Tipsy Trails is a drinking game that combines strategy, luck, and hilarious challenges. Whether you're playing the board game version or the portable card game, you're in for a night of memorable fun with friends.
-          </p>
-          <p>
-            Navigate through various challenges, collect destination cards, and try to avoid the penalties as you make your way through the game. From the classic Waterfall to the infamous Monkey Drink, each space brings a new twist to your evening.
-          </p>
-          <p>
-            <strong>Note:</strong> Tipsy Trails is no longer in production, but we're keeping the instructions available for those who still have a copy or want to create their own version!
-          </p>
+    <div class="max-w-7xl mx-auto px-3 md:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <!-- Image Carousel -->
+        <div class="sticky top-32">
+          <div class="bg-craft-white rounded-lg shadow-lg overflow-hidden">
+            <ProductImageCarousel images={tipsyTrailsImages} alt="Tipsy Trails" />
+          </div>
+        </div>
+
+        <!-- Product Details -->
+        <div>
+          <div class="bg-craft-white rounded-lg shadow-md p-8 md:p-10">
+            <h2 class="text-craft-black mb-6">About Tipsy Trails</h2>
+            <div class="space-y-4 text-craft-charcoal text-lg leading-relaxed">
+              <p>
+                Tipsy Trails is a drinking game that combines strategy, luck, and hilarious challenges. Whether you're playing the board game version or the portable card game, you're in for a night of memorable fun with friends.
+              </p>
+              <p>
+                Navigate through various challenges, collect destination cards, and try to avoid the penalties as you make your way through the game. From the classic Waterfall to the infamous Monkey Drink, each space brings a new twist to your evening.
+              </p>
+              <p>
+                <strong>Note:</strong> Tipsy Trails is no longer in production, but we're keeping the instructions available for those who still have a copy or want to create their own version!
+              </p>
+            </div>
+          </div>
+
+          <!-- Instruction Links -->
+          <div class="mt-8 bg-craft-white rounded-lg shadow-md p-8 md:p-10">
+            <h2 class="text-craft-black mb-4">Game Instructions</h2>
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-craft-black text-lg mb-3">Board Game Instructions</h3>
+                <p class="text-craft-charcoal mb-4">
+                  Complete rules for the original Tipsy Trails board game, including all activity cards and how to win.
+                </p>
+                <a href="/products/games/tipsy-trails/instructions" class="btn-primary inline-flex items-center gap-2">
+                  <span>View Board Game Rules</span>
+                  <ArrowRight class="w-5 h-5" />
+                </a>
+              </div>
+              
+              <div class="border-t border-craft-warm-gray pt-6">
+                <h3 class="text-craft-black text-lg mb-3">Card Game Instructions</h3>
+                <p class="text-craft-charcoal mb-4">
+                  Portable card game version with all the same fun challenges in an easy-to-carry format.
+                </p>
+                <a href="/products/games/tipsy-trails/instructions-card-game" class="btn-primary inline-flex items-center gap-2">
+                  <span>View Card Game Rules</span>
+                  <ArrowRight class="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Instruction Links -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-        <div class="card overflow-hidden">
-          <div class="p-8">
-            <h3 class="text-craft-black mb-4">Board Game Instructions</h3>
-            <p class="text-craft-charcoal text-base mb-6">
-              Complete rules for the original Tipsy Trails board game, including all activity cards and how to win.
-            </p>
-            <a href="/products/games/tipsy-trails/instructions" class="btn-primary inline-flex items-center gap-2">
-              <span>View Board Game Rules</span>
-              <ArrowRight class="w-5 h-5" />
-            </a>
-          </div>
-        </div>
-
-        <div class="card overflow-hidden">
-          <div class="p-8">
-            <h3 class="text-craft-black mb-4">Card Game Instructions</h3>
-            <p class="text-craft-charcoal text-base mb-6">
-              Portable card game version with all the same fun challenges in an easy-to-carry format.
-            </p>
-            <a href="/products/games/tipsy-trails/instructions-card-game" class="btn-primary inline-flex items-center gap-2">
-              <span>View Card Game Rules</span>
-              <ArrowRight class="w-5 h-5" />
-            </a>
-          </div>
-        </div>
+      <!-- CTA -->
+      <div class="mt-12 text-center">
+        <a href="/products" class="btn-secondary inline-flex items-center gap-2">
+          <span>Browse All Products</span>
+          <ArrowRight class="w-5 h-5" />
+        </a>
       </div>
     </div>
   </section>

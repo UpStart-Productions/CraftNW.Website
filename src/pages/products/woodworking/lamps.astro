@@ -29,12 +29,18 @@ const lampImages = [
   <div class="pt-32 md:pt-36"></div>
 
   <!-- Page Header -->
-  <section class="bg-craft-tan py-16">
-    <div class="container-craft text-center">
-      <h1 class="text-craft-black mb-4">
+  <section 
+    class="relative py-16 bg-cover bg-center bg-no-repeat flex items-center min-h-[400px]"
+    style="background-image: url('/images/products/lamps/hero/lamp-1.jpg');"
+  >
+    <!-- Overlay for text readability -->
+    <div class="absolute inset-0 bg-craft-black/20"></div>
+    
+    <div class="container-craft text-center relative z-10 w-full">
+      <h1 class="text-craft-white mb-4" style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);">
         Handcrafted Lamps
       </h1>
-      <p class="text-craft-charcoal text-xl max-w-2xl mx-auto">
+      <p class="text-craft-white text-xl max-w-2xl mx-auto" style="text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);">
         Unique lighting pieces that bring warmth and character to any space
       </p>
     </div>
@@ -93,7 +99,8 @@ const lampImages = [
               </ul>
             </div>
 
-            <div class="mt-8 p-6 bg-craft-tan rounded-lg border-2 border-craft-brown">
+            <!-- Available on Etsy -->
+            <!-- <div class="mt-8 p-6 bg-craft-tan rounded-lg border-2 border-craft-brown">
               <h3 class="text-craft-black mb-3">Available on Etsy</h3>
               <p class="text-craft-charcoal mb-4">
                 Browse our current selection of handcrafted lamps on Etsy. Each listing includes detailed photos and specifications.
@@ -107,7 +114,7 @@ const lampImages = [
                 <ShoppingBag class="w-5 h-5" />
                 <span>Shop on Etsy</span>
               </a>
-            </div>
+            </div> -->
           </div>
 
           <!-- Custom Orders -->
