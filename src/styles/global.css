@@ -23,7 +23,7 @@
     --craft-red: #D84315;
     
     /* Typography */
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-heading: 'TarponMotel', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
